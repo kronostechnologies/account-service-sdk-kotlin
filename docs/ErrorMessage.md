@@ -1,0 +1,30 @@
+
+# ErrorMessage
+
+## Enum
+
+
+    * `sERVERERROR` (value: `"SERVER_ERROR"`)
+
+    * `nOTFOUND` (value: `"NOT_FOUND"`)
+
+    * `bADREQUEST` (value: `"BAD_REQUEST"`)
+
+    * `aCCESSDENIED` (value: `"ACCESS_DENIED"`)
+
+    * `pASSWORDRESETREQUESTED` (value: `"PASSWORD_RESET_REQUESTED"`)
+
+    * `sESSIONALREADYIMPERSONATED` (value: `"SESSION_ALREADY_IMPERSONATED"`)
+
+    * `sESSIONNOTIMPERSONATED` (value: `"SESSION_NOT_IMPERSONATED"`)
+
+    * `sESSIONNOTENABLED` (value: `"SESSION_NOT_ENABLED"`)
+
+    * `uSERNOTENABLED` (value: `"USER_NOT_ENABLED"`)
+
+    * `uSERAGREEMENTREQUESTED` (value: `"USER_AGREEMENT_REQUESTED"`)
+
+    * `cONCURRENTACCESS` (value: `"CONCURRENT_ACCESS"`)
+
+
+
