@@ -35,6 +35,8 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ServiceAccountApi* | [**createServiceAccount**](docs/ServiceAccountApi.md#createserviceaccount) | **POST** /serviceAccounts | Creates a new service account
+*ServiceAccountApi* | [**getServiceAccount**](docs/ServiceAccountApi.md#getserviceaccount) | **GET** /serviceAccounts/{uuid} | Get detailed information about a user account.
 *SessionApi* | [**createSession**](docs/SessionApi.md#createsession) | **POST** /sessions | Create a user session.
 *SessionApi* | [**deleteAllSessions**](docs/SessionApi.md#deleteallsessions) | **DELETE** /sessions | Delete all sessions
 *SessionApi* | [**deleteExpiredSessions**](docs/SessionApi.md#deleteexpiredsessions) | **DELETE** /sessions/expired | Delete all expired sessions.
@@ -63,6 +65,9 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.Id](docs/Id.md)
  - [com.equisoft.accountservice.sdk.models.ImpersonatePayload](docs/ImpersonatePayload.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccess](docs/ServiceAccess.md)
+ - [com.equisoft.accountservice.sdk.models.ServiceAccountCreationSchema](docs/ServiceAccountCreationSchema.md)
+ - [com.equisoft.accountservice.sdk.models.ServiceAccountSchema](docs/ServiceAccountSchema.md)
+ - [com.equisoft.accountservice.sdk.models.ServiceAccountStatus](docs/ServiceAccountStatus.md)
  - [com.equisoft.accountservice.sdk.models.ServiceName](docs/ServiceName.md)
  - [com.equisoft.accountservice.sdk.models.Session](docs/Session.md)
  - [com.equisoft.accountservice.sdk.models.SessionPayload](docs/SessionPayload.md)
