@@ -12,6 +12,7 @@
 package com.equisoft.accountservice.sdk.apis
 
 import com.equisoft.accountservice.sdk.models.ErrorPayload
+import com.equisoft.accountservice.sdk.models.ServiceAccountCreatedSchema
 import com.equisoft.accountservice.sdk.models.ServiceAccountCreationSchema
 import com.equisoft.accountservice.sdk.models.ServiceAccountSchema
 
@@ -39,13 +40,14 @@ class ServiceAccountApi(basePath: kotlin.String = defaultBasePath) : ApiClient(b
     * Creates a new service account
     * 
     * @param serviceAccountCreationSchema  
-    * @return void
+    * @return ServiceAccountCreatedSchema
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
+    @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createServiceAccount(serviceAccountCreationSchema: ServiceAccountCreationSchema) : Unit {
+    fun createServiceAccount(serviceAccountCreationSchema: ServiceAccountCreationSchema) : ServiceAccountCreatedSchema {
         val localVariableBody: kotlin.Any? = serviceAccountCreationSchema
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -55,13 +57,13 @@ class ServiceAccountApi(basePath: kotlin.String = defaultBasePath) : ApiClient(b
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val localVarResponse = request<Any?>(
+        val localVarResponse = request<ServiceAccountCreatedSchema>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceAccountCreatedSchema
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {

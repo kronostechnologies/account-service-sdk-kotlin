@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="createServiceAccount"></a>
 # **createServiceAccount**
-> createServiceAccount(serviceAccountCreationSchema)
+> ServiceAccountCreatedSchema createServiceAccount(serviceAccountCreationSchema)
 
 Creates a new service account
 
@@ -23,7 +23,8 @@ Creates a new service account
 val apiInstance = ServiceAccountApi()
 val serviceAccountCreationSchema : ServiceAccountCreationSchema =  // ServiceAccountCreationSchema | 
 try {
-    apiInstance.createServiceAccount(serviceAccountCreationSchema)
+    val result : ServiceAccountCreatedSchema = apiInstance.createServiceAccount(serviceAccountCreationSchema)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling ServiceAccountApi#createServiceAccount")
     e.printStackTrace()
@@ -41,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**ServiceAccountCreatedSchema**](ServiceAccountCreatedSchema.md)
 
 ### Authorization
 
@@ -50,7 +51,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a name="getServiceAccount"></a>
 # **getServiceAccount**

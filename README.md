@@ -65,6 +65,7 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.Id](docs/Id.md)
  - [com.equisoft.accountservice.sdk.models.ImpersonatePayload](docs/ImpersonatePayload.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccess](docs/ServiceAccess.md)
+ - [com.equisoft.accountservice.sdk.models.ServiceAccountCreatedSchema](docs/ServiceAccountCreatedSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountCreationSchema](docs/ServiceAccountCreationSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountSchema](docs/ServiceAccountSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountStatus](docs/ServiceAccountStatus.md)
