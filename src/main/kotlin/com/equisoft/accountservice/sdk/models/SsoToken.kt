@@ -13,6 +13,7 @@ package com.equisoft.accountservice.sdk.models
 
 
 import com.squareup.moshi.Json
+
 /**
  * 
  * @param id String that uniquely identify a sso token for a given session.

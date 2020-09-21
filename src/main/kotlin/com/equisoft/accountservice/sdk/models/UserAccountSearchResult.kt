@@ -13,6 +13,7 @@ package com.equisoft.accountservice.sdk.models
 
 
 import com.squareup.moshi.Json
+
 /**
  * The list of UUIDs that matched the search.
  * @param uuid 

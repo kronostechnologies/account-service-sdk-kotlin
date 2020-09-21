@@ -14,6 +14,7 @@ package com.equisoft.accountservice.sdk.models
 import com.equisoft.accountservice.sdk.models.SsoProvider
 
 import com.squareup.moshi.Json
+
 /**
  * Data needed for the creation of a user session.
  * @param userUuid Globally unique identifier.

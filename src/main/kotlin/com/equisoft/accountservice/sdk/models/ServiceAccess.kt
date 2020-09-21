@@ -15,6 +15,7 @@ import com.equisoft.accountservice.sdk.models.DatabaseState
 import com.equisoft.accountservice.sdk.models.ServiceName
 
 import com.squareup.moshi.Json
+
 /**
  * 
  * @param serviceName 

@@ -16,6 +16,7 @@ import com.equisoft.accountservice.sdk.models.UserAgreement
 import com.equisoft.accountservice.sdk.models.UserState
 
 import com.squareup.moshi.Json
+
 /**
  * 
  * @param id 

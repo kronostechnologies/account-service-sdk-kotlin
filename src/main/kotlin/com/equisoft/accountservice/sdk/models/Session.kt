@@ -16,6 +16,7 @@ import com.equisoft.accountservice.sdk.models.SsoProvider
 import com.equisoft.accountservice.sdk.models.User
 
 import com.squareup.moshi.Json
+
 /**
  * 
  * @param sessionId Globally unique identifier.

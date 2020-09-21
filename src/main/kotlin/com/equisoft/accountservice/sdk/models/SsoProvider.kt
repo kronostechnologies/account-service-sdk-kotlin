@@ -13,6 +13,7 @@ package com.equisoft.accountservice.sdk.models
 
 
 import com.squareup.moshi.Json
+
 /**
  * Details related to the SSO provider user to create this session.
  * @param provider SSO Provider who initiated the single sign on.

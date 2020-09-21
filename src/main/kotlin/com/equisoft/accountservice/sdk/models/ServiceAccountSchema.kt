@@ -14,6 +14,7 @@ package com.equisoft.accountservice.sdk.models
 import com.equisoft.accountservice.sdk.models.ServiceAccountStatus
 
 import com.squareup.moshi.Json
+
 /**
  * Represents a service account
  * @param uuid 
