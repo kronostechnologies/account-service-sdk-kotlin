@@ -14,10 +14,10 @@ plugins {
 }
 
 group 'com.equisoft.accountservice.sdk'
-version 'dev'
+version 'dev-SNAPSHOT'
 
 wrapper {
-    gradleVersion = '4.9'
+    gradleVersion = '6.5.1'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
@@ -40,10 +40,14 @@ dependencies {
     testCompile "io.kotlintest:kotlintest-runner-junit5:3.1.0"
 }
 
+java {
+    targetCompatibility = JavaVersion.VERSION_13
+}
+
 publishing {
     repositories {
         maven {
-            name = "AccountServiceSdkKotlin"
+            name = "account-service-sdk"
             url = uri("https://maven.pkg.github.com/kronostechnologies/account-service-sdk-kotlin")
             credentials {
                 username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
