@@ -1,11 +1,3 @@
-group 'com.equisoft.accountservice.sdk'
-version 'dev'
-
-wrapper {
-    gradleVersion = '4.9'
-    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
-}
-
 buildscript {
     ext.kotlin_version = '1.3.61'
 
@@ -15,6 +7,18 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
+}
+
+plugins {
+    id("maven-publish")
+}
+
+group 'com.equisoft.accountservice.sdk'
+version 'dev'
+
+wrapper {
+    gradleVersion = '4.9'
+    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
 apply plugin: 'kotlin'
@@ -34,4 +38,22 @@ dependencies {
     compile "com.squareup.moshi:moshi-adapters:1.9.2"
     compile "com.squareup.okhttp3:okhttp:4.2.2"
     testCompile "io.kotlintest:kotlintest-runner-junit5:3.1.0"
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "AccountServiceSdkKotlin"
+            url = uri("https://maven.pkg.github.com/kronostechnologies/account-service-sdk-kotlin")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 }
