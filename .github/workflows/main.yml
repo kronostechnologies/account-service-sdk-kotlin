@@ -35,7 +35,7 @@ jobs:
       - name: Publish Data
         id: publish_data
         run: |
-          VERION="dev-SNAPSHOT"
+          VERSION="dev-SNAPSHOT"
           if [[ $GITHUB_REF == refs/tags/v* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
           fi
