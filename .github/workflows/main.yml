@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ master ]
+    tags:
+      - v*.*.*
   pull_request:
     branches: [ master ]
 
@@ -30,5 +32,14 @@ jobs:
       - name: Build and Test
         run: ./gradlew assemble test
 
+      - name: Publish Data
+        id: publish_data
+        run: |
+          VERION="dev-SNAPSHOT"
+          if [[ $GITHUB_REF == refs/tags/v* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+          fi
+          echo ::set-output name=version::${VERSION}
+
       - name: Publish
-        run: ./gradlew -Pgpr.user=build -Pgpr.key=${{ secrets.GITHUB_TOKEN }} publish
+        run: ./gradlew -Papplication.version="${{ steps.publish_data.outputs.version }}" -Pgpr.user=build -Pgpr.key=${{ secrets.GITHUB_TOKEN }} publish

@@ -14,7 +14,7 @@ plugins {
 }
 
 group 'com.equisoft.accountservice.sdk'
-version 'dev-SNAPSHOT'
+version System.getProperty("application.version", "dev-SNAPSHOT")
 
 wrapper {
     gradleVersion = '6.5.1'
