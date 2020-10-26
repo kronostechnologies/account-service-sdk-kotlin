@@ -28,6 +28,10 @@ jobs:
 
       - name: Install required tooling
         uses: asdf-vm/actions/install@v1
+        
+      - name: Switch to the asdf-provided version of java
+        run: |
+          echo "JAVA_HOME=$(dirname "$(dirname "$(realpath "$(asdf which java)")")")" >> $GITHUB_ENV;
 
       - name: Build and Test
         run: ./gradlew assemble test
