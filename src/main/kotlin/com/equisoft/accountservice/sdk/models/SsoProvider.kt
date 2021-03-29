@@ -23,9 +23,9 @@ import com.squareup.moshi.Json
 data class SsoProvider (
     /* SSO Provider who initiated the single sign on. */
     @Json(name = "provider")
-    val provider: kotlin.String? = null,
+    val provider: kotlin.String,
     /* External identifier the user used to login with the SSO provider. */
     @Json(name = "identifier")
-    val identifier: kotlin.String? = null
+    val identifier: kotlin.String
 )
 

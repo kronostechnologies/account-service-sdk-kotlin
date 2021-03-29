@@ -47,18 +47,10 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun deleteUserSessions(uuid: kotlin.String) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.DELETE,
-            "/users/{uuid}/sessions".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = deleteUserSessionsRequestConfig(uuid = uuid)
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -77,6 +69,28 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     }
 
     /**
+    * To obtain the request config of the operation deleteUserSessions
+    *
+    * @param uuid The user account&#39;s identifier 
+    * @return RequestConfig
+    */
+    fun deleteUserSessionsRequestConfig(uuid: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/users/{uuid}/sessions".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Get detailed information about a user account.
     * 
     * @param uuid The user account&#39;s identifier 
@@ -88,18 +102,10 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun getUser(uuid: kotlin.String) : User {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/users/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = getUserRequestConfig(uuid = uuid)
+
         val localVarResponse = request<User>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -118,6 +124,28 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     }
 
     /**
+    * To obtain the request config of the operation getUser
+    *
+    * @param uuid The user account&#39;s identifier 
+    * @return RequestConfig
+    */
+    fun getUserRequestConfig(uuid: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/users/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Find an uuid by id.
     * 
     * @param id The user account&#39;s identifier 
@@ -129,18 +157,10 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun getUuidById(id: kotlin.Long) : Id {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/users/{id}/uuid".replace("{"+"id"+"}", "$id"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = getUuidByIdRequestConfig(id = id)
+
         val localVarResponse = request<Id>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -159,6 +179,28 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     }
 
     /**
+    * To obtain the request config of the operation getUuidById
+    *
+    * @param id The user account&#39;s identifier 
+    * @return RequestConfig
+    */
+    fun getUuidByIdRequestConfig(id: kotlin.Long) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/users/{id}/uuid".replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Searches accounts that match ALL params. If no search parameters are provided, returns all users.
     * 
     * @param identifierOrEmail  (optional)
@@ -172,29 +214,10 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun listUsers(identifierOrEmail: kotlin.String?, identifier: kotlin.String?, email: kotlin.String?) : kotlin.collections.List<UserAccountSearchResult> {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
-            .apply {
-                if (identifierOrEmail != null) {
-                    put("identifierOrEmail", listOf(identifierOrEmail.toString()))
-                }
-                if (identifier != null) {
-                    put("identifier", listOf(identifier.toString()))
-                }
-                if (email != null) {
-                    put("email", listOf(email.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/users",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = listUsersRequestConfig(identifierOrEmail = identifierOrEmail, identifier = identifier, email = email)
+
         val localVarResponse = request<kotlin.collections.List<UserAccountSearchResult>>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -210,6 +233,41 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation listUsers
+    *
+    * @param identifierOrEmail  (optional)
+    * @param identifier  (optional)
+    * @param email  (optional)
+    * @return RequestConfig
+    */
+    fun listUsersRequestConfig(identifierOrEmail: kotlin.String?, identifier: kotlin.String?, email: kotlin.String?) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
+            .apply {
+                if (identifierOrEmail != null) {
+                    put("identifierOrEmail", listOf(identifierOrEmail.toString()))
+                }
+                if (identifier != null) {
+                    put("identifier", listOf(identifier.toString()))
+                }
+                if (email != null) {
+                    put("email", listOf(email.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/users",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
 }

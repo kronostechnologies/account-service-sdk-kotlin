@@ -22,6 +22,6 @@ import com.squareup.moshi.Json
 
 data class UserAgreement (
     @Json(name = "state")
-    val state: UserAgreementState? = null
+    val state: UserAgreementState
 )
 

@@ -23,7 +23,7 @@ import com.squareup.moshi.Json
 
 data class ErrorPayload (
     @Json(name = "message")
-    val message: ErrorMessage? = null,
+    val message: ErrorMessage,
     @Json(name = "description")
     val description: kotlin.String? = null
 )

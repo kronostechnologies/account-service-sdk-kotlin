@@ -19,24 +19,20 @@ import com.squareup.moshi.Json
 * Values: eQUISOFTCONNECT,eQUISOFTPLAN,eQUISOFTANALYZEFORADVISORS,cPANEL
 */
 
-enum class ServiceName(val value: kotlin.String){
+enum class ServiceName(val value: kotlin.String) {
 
 
     @Json(name = "EQUISOFT_CONNECT")
     eQUISOFTCONNECT("EQUISOFT_CONNECT"),
 
-
     @Json(name = "EQUISOFT_PLAN")
     eQUISOFTPLAN("EQUISOFT_PLAN"),
-
 
     @Json(name = "EQUISOFT_ANALYZE_FOR_ADVISORS")
     eQUISOFTANALYZEFORADVISORS("EQUISOFT_ANALYZE_FOR_ADVISORS"),
 
-
     @Json(name = "CPANEL")
     cPANEL("CPANEL");
-
 
 
     /**
@@ -46,6 +42,5 @@ enum class ServiceName(val value: kotlin.String){
     override fun toString(): String {
         return value
     }
-
 }
 

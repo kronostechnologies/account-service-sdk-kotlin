@@ -2,8 +2,8 @@
 
 ## Requires
 
-* Kotlin 1.3.61
-* Gradle 4.9
+* Kotlin 1.4.30
+* Gradle 6.8.3
 
 ## Build
 
@@ -35,8 +35,17 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*OrganizationApi* | [**createOrUpdateOrganization**](docs/OrganizationApi.md#createorupdateorganization) | **PUT** /organizations/{uuid} | Create or update an organization for a given uuid
+*OrganizationApi* | [**createOrganization**](docs/OrganizationApi.md#createorganization) | **POST** /organizations | Creates a new organization
+*OrganizationApi* | [**getOrganization**](docs/OrganizationApi.md#getorganization) | **GET** /organizations/{uuid} | Get detailed information about an organization.
+*OrganizationApi* | [**listOrganization**](docs/OrganizationApi.md#listorganization) | **GET** /organizations | List organizations
+*OrganizationRoleApi* | [**createOrUpdateRole**](docs/OrganizationRoleApi.md#createorupdaterole) | **PUT** /organizations/{organisationId}/roles/{roleId} | Create or update organization roles for a given uuid
+*OrganizationRoleApi* | [**createRole**](docs/OrganizationRoleApi.md#createrole) | **POST** /organizations/{organizationId}/roles | Create organization roles for a given uuid
+*PermissionApi* | [**createOrUpdatePermission**](docs/PermissionApi.md#createorupdatepermission) | **PUT** /permissions/{code} | Create or update a permission for a given code
 *ServiceAccountApi* | [**createServiceAccount**](docs/ServiceAccountApi.md#createserviceaccount) | **POST** /serviceAccounts | Creates a new service account
 *ServiceAccountApi* | [**getServiceAccount**](docs/ServiceAccountApi.md#getserviceaccount) | **GET** /serviceAccounts/{uuid} | Get detailed information about a user account.
+*ServiceAccountApi* | [**searchServiceAccount**](docs/ServiceAccountApi.md#searchserviceaccount) | **GET** /serviceAccounts | Searches service accounts that match ALL params. If none are provided, returns all service accounts
+*ServiceAccountApi* | [**updateServiceAccount**](docs/ServiceAccountApi.md#updateserviceaccount) | **PATCH** /serviceAccounts/{uuid} | Updates a service account by uuid
 *SessionApi* | [**createSession**](docs/SessionApi.md#createsession) | **POST** /sessions | Create a user session.
 *SessionApi* | [**deleteAllSessions**](docs/SessionApi.md#deleteallsessions) | **DELETE** /sessions | Delete all sessions
 *SessionApi* | [**deleteExpiredSessions**](docs/SessionApi.md#deleteexpiredsessions) | **DELETE** /sessions/expired | Delete all expired sessions.
@@ -58,17 +67,27 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [com.equisoft.accountservice.sdk.models.CreateOrUpdateOrganizationPayload](docs/CreateOrUpdateOrganizationPayload.md)
+ - [com.equisoft.accountservice.sdk.models.CreateOrUpdatePermissionPayload](docs/CreateOrUpdatePermissionPayload.md)
+ - [com.equisoft.accountservice.sdk.models.CreateOrganizationPayload](docs/CreateOrganizationPayload.md)
+ - [com.equisoft.accountservice.sdk.models.CreateRole](docs/CreateRole.md)
  - [com.equisoft.accountservice.sdk.models.DatabaseState](docs/DatabaseState.md)
  - [com.equisoft.accountservice.sdk.models.EnableEquisoftConnectPayloadSchema](docs/EnableEquisoftConnectPayloadSchema.md)
  - [com.equisoft.accountservice.sdk.models.ErrorMessage](docs/ErrorMessage.md)
  - [com.equisoft.accountservice.sdk.models.ErrorPayload](docs/ErrorPayload.md)
  - [com.equisoft.accountservice.sdk.models.Id](docs/Id.md)
  - [com.equisoft.accountservice.sdk.models.ImpersonatePayload](docs/ImpersonatePayload.md)
+ - [com.equisoft.accountservice.sdk.models.LocalizedString](docs/LocalizedString.md)
+ - [com.equisoft.accountservice.sdk.models.Organization](docs/Organization.md)
+ - [com.equisoft.accountservice.sdk.models.OrganizationCreated](docs/OrganizationCreated.md)
+ - [com.equisoft.accountservice.sdk.models.PermissionCreated](docs/PermissionCreated.md)
+ - [com.equisoft.accountservice.sdk.models.RoleCreated](docs/RoleCreated.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccess](docs/ServiceAccess.md)
- - [com.equisoft.accountservice.sdk.models.ServiceAccountCreatedSchema](docs/ServiceAccountCreatedSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountCreationSchema](docs/ServiceAccountCreationSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountSchema](docs/ServiceAccountSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountStatus](docs/ServiceAccountStatus.md)
+ - [com.equisoft.accountservice.sdk.models.ServiceAccountUpdateSchema](docs/ServiceAccountUpdateSchema.md)
+ - [com.equisoft.accountservice.sdk.models.ServiceAccountUuidSchema](docs/ServiceAccountUuidSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceName](docs/ServiceName.md)
  - [com.equisoft.accountservice.sdk.models.Session](docs/Session.md)
  - [com.equisoft.accountservice.sdk.models.SessionPayload](docs/SessionPayload.md)

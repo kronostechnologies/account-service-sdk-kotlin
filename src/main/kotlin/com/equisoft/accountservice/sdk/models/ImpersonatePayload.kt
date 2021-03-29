@@ -22,6 +22,6 @@ import com.squareup.moshi.Json
 data class ImpersonatePayload (
     /* Globally unique identifier. */
     @Json(name = "userUuid")
-    val userUuid: kotlin.String? = null
+    val userUuid: kotlin.String
 )
 

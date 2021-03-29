@@ -19,24 +19,20 @@ import com.squareup.moshi.Json
 * Values: eNABLED,dISABLED,dELETED,mAINTENANCE
 */
 
-enum class DatabaseState(val value: kotlin.String){
+enum class DatabaseState(val value: kotlin.String) {
 
 
     @Json(name = "ENABLED")
     eNABLED("ENABLED"),
 
-
     @Json(name = "DISABLED")
     dISABLED("DISABLED"),
-
 
     @Json(name = "DELETED")
     dELETED("DELETED"),
 
-
     @Json(name = "MAINTENANCE")
     mAINTENANCE("MAINTENANCE");
-
 
 
     /**
@@ -46,6 +42,5 @@ enum class DatabaseState(val value: kotlin.String){
     override fun toString(): String {
         return value
     }
-
 }
 

@@ -23,9 +23,9 @@ import com.squareup.moshi.Json
 data class SsoToken (
     /* String that uniquely identify a sso token for a given session. */
     @Json(name = "id")
-    val id: kotlin.String? = null,
+    val id: kotlin.String,
     /* Token value returned as stored. There is no double-encoding. */
     @Json(name = "value")
-    val value: kotlin.String? = null
+    val value: kotlin.String
 )
 

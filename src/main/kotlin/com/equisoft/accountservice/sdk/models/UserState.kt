@@ -19,20 +19,17 @@ import com.squareup.moshi.Json
 * Values: dELETED,dISABLED,eNABLED
 */
 
-enum class UserState(val value: kotlin.String){
+enum class UserState(val value: kotlin.String) {
 
 
     @Json(name = "DELETED")
     dELETED("DELETED"),
 
-
     @Json(name = "DISABLED")
     dISABLED("DISABLED"),
 
-
     @Json(name = "ENABLED")
     eNABLED("ENABLED");
-
 
 
     /**
@@ -42,6 +39,5 @@ enum class UserState(val value: kotlin.String){
     override fun toString(): String {
         return value
     }
-
 }
 

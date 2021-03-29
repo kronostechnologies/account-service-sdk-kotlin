@@ -19,16 +19,14 @@ import com.squareup.moshi.Json
 * Values: aCCEPTED,rEQUESTED
 */
 
-enum class UserAgreementState(val value: kotlin.String){
+enum class UserAgreementState(val value: kotlin.String) {
 
 
     @Json(name = "ACCEPTED")
     aCCEPTED("ACCEPTED"),
 
-
     @Json(name = "REQUESTED")
     rEQUESTED("REQUESTED");
-
 
 
     /**
@@ -38,6 +36,5 @@ enum class UserAgreementState(val value: kotlin.String){
     override fun toString(): String {
         return value
     }
-
 }
 

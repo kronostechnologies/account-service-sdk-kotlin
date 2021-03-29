@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | [**UserAgreementState**](UserAgreementState.md) |  |  [optional]
+**state** | [**UserAgreementState**](UserAgreementState.md) |  | 
 
 
 

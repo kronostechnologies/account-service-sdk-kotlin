@@ -19,28 +19,23 @@ import com.squareup.moshi.Json
 * Values: nEW,eNABLED,sUSPENDED,eXPIRED,dELETED
 */
 
-enum class SessionState(val value: kotlin.String){
+enum class SessionState(val value: kotlin.String) {
 
 
     @Json(name = "NEW")
     nEW("NEW"),
 
-
     @Json(name = "ENABLED")
     eNABLED("ENABLED"),
-
 
     @Json(name = "SUSPENDED")
     sUSPENDED("SUSPENDED"),
 
-
     @Json(name = "EXPIRED")
     eXPIRED("EXPIRED"),
 
-
     @Json(name = "DELETED")
     dELETED("DELETED");
-
 
 
     /**
@@ -50,6 +45,5 @@ enum class SessionState(val value: kotlin.String){
     override fun toString(): String {
         return value
     }
-
 }
 

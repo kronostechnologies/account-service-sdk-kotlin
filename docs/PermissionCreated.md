@@ -1,10 +1,10 @@
 
-# ServiceAccountCreatedSchema
+# PermissionCreated
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **kotlin.String** |  |  [optional]
+**code** | **kotlin.String** |  |  [optional]
 
 
 

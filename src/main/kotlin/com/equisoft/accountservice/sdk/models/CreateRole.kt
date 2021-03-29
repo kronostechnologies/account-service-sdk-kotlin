@@ -11,16 +11,20 @@
 */
 package com.equisoft.accountservice.sdk.models
 
+import com.equisoft.accountservice.sdk.models.LocalizedString
 
 import com.squareup.moshi.Json
 
 /**
- * Information about the created service account
- * @param uuid 
+ * create role schema
+ * @param name 
+ * @param permissions 
  */
 
-data class ServiceAccountCreatedSchema (
-    @Json(name = "uuid")
-    val uuid: kotlin.String? = null
+data class CreateRole (
+    @Json(name = "name")
+    val name: LocalizedString? = null,
+    @Json(name = "permissions")
+    val permissions: kotlin.collections.List<kotlin.String>? = null
 )
 

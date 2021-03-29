@@ -23,47 +23,47 @@ import com.squareup.moshi.Json
  * @param uuid 
  * @param displayName 
  * @param email 
- * @param mobilePhone Mobile phone used for sms password reset.
  * @param locale 
  * @param state 
  * @param roles Roles the user is member a member of.
  * @param deletable User deletion is disabled.
  * @param billable User is accounted for billing.
  * @param agreement 
- * @param created 
  * @param services 
+ * @param mobilePhone Mobile phone used for sms password reset.
+ * @param created 
  */
 
 data class User (
     @Json(name = "id")
-    val id: kotlin.Long? = null,
+    val id: kotlin.Long,
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null,
+    val uuid: kotlin.String,
     @Json(name = "displayName")
-    val displayName: kotlin.String? = null,
+    val displayName: kotlin.String,
     @Json(name = "email")
-    val email: kotlin.String? = null,
+    val email: kotlin.String,
+    @Json(name = "locale")
+    val locale: kotlin.String,
+    @Json(name = "state")
+    val state: UserState,
+    /* Roles the user is member a member of. */
+    @Json(name = "roles")
+    val roles: kotlin.collections.List<kotlin.String>,
+    /* User deletion is disabled. */
+    @Json(name = "deletable")
+    val deletable: kotlin.Boolean,
+    /* User is accounted for billing. */
+    @Json(name = "billable")
+    val billable: kotlin.Boolean,
+    @Json(name = "agreement")
+    val agreement: UserAgreement,
+    @Json(name = "services")
+    val services: kotlin.collections.List<ServiceAccess>,
     /* Mobile phone used for sms password reset. */
     @Json(name = "mobilePhone")
     val mobilePhone: kotlin.String? = null,
-    @Json(name = "locale")
-    val locale: kotlin.String? = null,
-    @Json(name = "state")
-    val state: UserState? = null,
-    /* Roles the user is member a member of. */
-    @Json(name = "roles")
-    val roles: kotlin.collections.List<kotlin.String>? = null,
-    /* User deletion is disabled. */
-    @Json(name = "deletable")
-    val deletable: kotlin.Boolean? = null,
-    /* User is accounted for billing. */
-    @Json(name = "billable")
-    val billable: kotlin.Boolean? = null,
-    @Json(name = "agreement")
-    val agreement: UserAgreement? = null,
     @Json(name = "created")
-    val created: java.time.OffsetDateTime? = null,
-    @Json(name = "services")
-    val services: kotlin.collections.List<ServiceAccess>? = null
+    val created: java.time.OffsetDateTime? = null
 )
 

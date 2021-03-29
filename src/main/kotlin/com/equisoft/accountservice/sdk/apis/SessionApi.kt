@@ -50,18 +50,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun createSession(sessionPayload: SessionPayload) : Session {
-        val localVariableBody: kotlin.Any? = sessionPayload
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/sessions",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = createSessionRequestConfig(sessionPayload = sessionPayload)
+
         val localVarResponse = request<Session>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -80,6 +72,28 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     }
 
     /**
+    * To obtain the request config of the operation createSession
+    *
+    * @param sessionPayload  
+    * @return RequestConfig
+    */
+    fun createSessionRequestConfig(sessionPayload: SessionPayload) : RequestConfig {
+        val localVariableBody: kotlin.Any? = sessionPayload
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.POST,
+            path = "/sessions",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Delete all sessions
     * 
     * @return void
@@ -89,18 +103,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun deleteAllSessions() : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.DELETE,
-            "/sessions",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = deleteAllSessionsRequestConfig()
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -119,6 +125,27 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     }
 
     /**
+    * To obtain the request config of the operation deleteAllSessions
+    *
+    * @return RequestConfig
+    */
+    fun deleteAllSessionsRequestConfig() : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/sessions",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Delete all expired sessions.
     * 
     * @return void
@@ -128,18 +155,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun deleteExpiredSessions() : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.DELETE,
-            "/sessions/expired",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = deleteExpiredSessionsRequestConfig()
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -155,6 +174,27 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation deleteExpiredSessions
+    *
+    * @return RequestConfig
+    */
+    fun deleteExpiredSessionsRequestConfig() : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/sessions/expired",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
     /**
@@ -168,18 +208,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun deleteSession(uuid: kotlin.String) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.DELETE,
-            "/sessions/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = deleteSessionRequestConfig(uuid = uuid)
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -195,6 +227,28 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation deleteSession
+    *
+    * @param uuid The user session&#39;s identifier 
+    * @return RequestConfig
+    */
+    fun deleteSessionRequestConfig(uuid: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/sessions/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
     /**
@@ -209,18 +263,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun deleteSessionSsoToken(uuid: kotlin.String, tokenId: kotlin.String) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.DELETE,
-            "/sessions/{uuid}/tokens/{tokenId}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"tokenId"+"}", "$tokenId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = deleteSessionSsoTokenRequestConfig(uuid = uuid, tokenId = tokenId)
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -239,6 +285,29 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     }
 
     /**
+    * To obtain the request config of the operation deleteSessionSsoToken
+    *
+    * @param uuid  
+    * @param tokenId  
+    * @return RequestConfig
+    */
+    fun deleteSessionSsoTokenRequestConfig(uuid: kotlin.String, tokenId: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/sessions/{uuid}/tokens/{tokenId}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"tokenId"+"}", "$tokenId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Allow activation for sessions created with enable&#x3D;false. This may be extended to enable specific services. Disabled sessions are not allowed to be used by first-party application (Equisoft/Connect, Equisoft/Plan).
     * 
     * @param uuid  
@@ -249,18 +318,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun enableSession(uuid: kotlin.String) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/sessions/{uuid}/enable".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = enableSessionRequestConfig(uuid = uuid)
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -276,6 +337,28 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation enableSession
+    *
+    * @param uuid  
+    * @return RequestConfig
+    */
+    fun enableSessionRequestConfig(uuid: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.POST,
+            path = "/sessions/{uuid}/enable".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
     /**
@@ -290,18 +373,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun enableSessionForEquisoftConnect(uuid: kotlin.String, enableEquisoftConnectPayloadSchema: EnableEquisoftConnectPayloadSchema?) : Unit {
-        val localVariableBody: kotlin.Any? = enableEquisoftConnectPayloadSchema
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/sessions/{uuid}/enable/EQUISOFT_CONNECT".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = enableSessionForEquisoftConnectRequestConfig(uuid = uuid, enableEquisoftConnectPayloadSchema = enableEquisoftConnectPayloadSchema)
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -317,6 +392,29 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation enableSessionForEquisoftConnect
+    *
+    * @param uuid  
+    * @param enableEquisoftConnectPayloadSchema  (optional)
+    * @return RequestConfig
+    */
+    fun enableSessionForEquisoftConnectRequestConfig(uuid: kotlin.String, enableEquisoftConnectPayloadSchema: EnableEquisoftConnectPayloadSchema?) : RequestConfig {
+        val localVariableBody: kotlin.Any? = enableEquisoftConnectPayloadSchema
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.POST,
+            path = "/sessions/{uuid}/enable/EQUISOFT_CONNECT".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
     /**
@@ -332,23 +430,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun getSession(uuid: kotlin.String, keepAlive: kotlin.Boolean?) : Session {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
-            .apply {
-                if (keepAlive != null) {
-                    put("keepAlive", listOf(keepAlive.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/sessions/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = getSessionRequestConfig(uuid = uuid, keepAlive = keepAlive)
+
         val localVarResponse = request<Session>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -367,6 +452,34 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     }
 
     /**
+    * To obtain the request config of the operation getSession
+    *
+    * @param uuid The user session&#39;s identifier 
+    * @param keepAlive If true, update the last access timestamp. (optional)
+    * @return RequestConfig
+    */
+    fun getSessionRequestConfig(uuid: kotlin.String, keepAlive: kotlin.Boolean?) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
+            .apply {
+                if (keepAlive != null) {
+                    put("keepAlive", listOf(keepAlive.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/sessions/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Get a stored sso token for the session
     * 
     * @param uuid  
@@ -379,18 +492,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun getSessionSsoToken(uuid: kotlin.String, tokenId: kotlin.String) : SsoToken {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/sessions/{uuid}/tokens/{tokenId}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"tokenId"+"}", "$tokenId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = getSessionSsoTokenRequestConfig(uuid = uuid, tokenId = tokenId)
+
         val localVarResponse = request<SsoToken>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -409,6 +514,29 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     }
 
     /**
+    * To obtain the request config of the operation getSessionSsoToken
+    *
+    * @param uuid  
+    * @param tokenId  
+    * @return RequestConfig
+    */
+    fun getSessionSsoTokenRequestConfig(uuid: kotlin.String, tokenId: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/sessions/{uuid}/tokens/{tokenId}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"tokenId"+"}", "$tokenId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Impersonate the given user context.
     * For administrator with impersonation capability. Impersonate the given user context. After impersonation, the admin user becomes the \&quot;actor\&quot; and the impersonated user becomes the \&quot;user\&quot;. Use /revertIdentity to revert the impersonation.
     * @param uuid  
@@ -421,18 +549,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun impersonate(uuid: kotlin.String, impersonatePayload: ImpersonatePayload) : Session {
-        val localVariableBody: kotlin.Any? = impersonatePayload
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/sessions/{uuid}/impersonate".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = impersonateRequestConfig(uuid = uuid, impersonatePayload = impersonatePayload)
+
         val localVarResponse = request<Session>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -451,6 +571,29 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     }
 
     /**
+    * To obtain the request config of the operation impersonate
+    *
+    * @param uuid  
+    * @param impersonatePayload  
+    * @return RequestConfig
+    */
+    fun impersonateRequestConfig(uuid: kotlin.String, impersonatePayload: ImpersonatePayload) : RequestConfig {
+        val localVariableBody: kotlin.Any? = impersonatePayload
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.POST,
+            path = "/sessions/{uuid}/impersonate".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Revert an impersonated session to the context of the \&quot;admin\&quot; user who initiated the impersonation.
     * 
     * @param uuid  
@@ -462,18 +605,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun revertIdentity(uuid: kotlin.String) : Session {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/sessions/{uuid}/revertIdentity".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = revertIdentityRequestConfig(uuid = uuid)
+
         val localVarResponse = request<Session>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -489,6 +624,28 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation revertIdentity
+    *
+    * @param uuid  
+    * @return RequestConfig
+    */
+    fun revertIdentityRequestConfig(uuid: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.POST,
+            path = "/sessions/{uuid}/revertIdentity".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
     /**
@@ -504,18 +661,10 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun setSessionSsoToken(uuid: kotlin.String, tokenId: kotlin.String, body: kotlin.String) : Unit {
-        val localVariableBody: kotlin.Any? = body
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.PUT,
-            "/sessions/{uuid}/tokens/{tokenId}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"tokenId"+"}", "$tokenId"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = setSessionSsoTokenRequestConfig(uuid = uuid, tokenId = tokenId, body = body)
+
         val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -531,6 +680,30 @@ class SessionApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation setSessionSsoToken
+    *
+    * @param uuid  
+    * @param tokenId  
+    * @param body  
+    * @return RequestConfig
+    */
+    fun setSessionSsoTokenRequestConfig(uuid: kotlin.String, tokenId: kotlin.String, body: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = body
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/sessions/{uuid}/tokens/{tokenId}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"tokenId"+"}", "$tokenId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
 }

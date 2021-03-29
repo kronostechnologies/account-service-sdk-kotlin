@@ -19,20 +19,17 @@ import com.squareup.moshi.Json
 * Values: eNABLED,dISABLED,dELETED
 */
 
-enum class ServiceAccountStatus(val value: kotlin.String){
+enum class ServiceAccountStatus(val value: kotlin.String) {
 
 
     @Json(name = "ENABLED")
     eNABLED("ENABLED"),
 
-
     @Json(name = "DISABLED")
     dISABLED("DISABLED"),
 
-
     @Json(name = "DELETED")
     dELETED("DELETED");
-
 
 
     /**
@@ -42,6 +39,5 @@ enum class ServiceAccountStatus(val value: kotlin.String){
     override fun toString(): String {
         return value
     }
-
 }
 

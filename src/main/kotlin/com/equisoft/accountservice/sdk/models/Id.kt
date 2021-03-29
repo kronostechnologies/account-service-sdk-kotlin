@@ -22,8 +22,8 @@ import com.squareup.moshi.Json
 
 data class Id (
     @Json(name = "id")
-    val id: kotlin.Long? = null,
+    val id: kotlin.Long,
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null
+    val uuid: kotlin.String
 )
 

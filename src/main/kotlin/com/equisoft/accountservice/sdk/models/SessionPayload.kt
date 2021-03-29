@@ -22,6 +22,7 @@ import com.squareup.moshi.Json
  * @param sso 
  * @param publicComputer Indicate that the session is initiated from a public computer.
  * @param mobileDevice Indicate that the session is initiated from a mobile device.
+ * @param cookieDomain Indicate the domain name the session cookie was emitted for. If null, the cookie is assumed to be on the current hostname.
  * @param isPublicComputer Indicate that the session is initiated from a public computer.
  * @param isMobileDevice Indicate that the session is initiated from a mobile device.
  */
@@ -29,7 +30,7 @@ import com.squareup.moshi.Json
 data class SessionPayload (
     /* Globally unique identifier. */
     @Json(name = "userUuid")
-    val userUuid: kotlin.String? = null,
+    val userUuid: kotlin.String,
     @Json(name = "enable")
     val enable: kotlin.Boolean? = null,
     @Json(name = "sso")
@@ -40,6 +41,9 @@ data class SessionPayload (
     /* Indicate that the session is initiated from a mobile device. */
     @Json(name = "mobileDevice")
     val mobileDevice: kotlin.Boolean? = null,
+    /* Indicate the domain name the session cookie was emitted for. If null, the cookie is assumed to be on the current hostname. */
+    @Json(name = "cookieDomain")
+    val cookieDomain: kotlin.String? = null,
     /* Indicate that the session is initiated from a public computer. */
     @Json(name = "isPublicComputer")
     val isPublicComputer: kotlin.Boolean? = null,

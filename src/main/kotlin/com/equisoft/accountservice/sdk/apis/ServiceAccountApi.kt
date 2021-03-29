@@ -12,9 +12,10 @@
 package com.equisoft.accountservice.sdk.apis
 
 import com.equisoft.accountservice.sdk.models.ErrorPayload
-import com.equisoft.accountservice.sdk.models.ServiceAccountCreatedSchema
 import com.equisoft.accountservice.sdk.models.ServiceAccountCreationSchema
 import com.equisoft.accountservice.sdk.models.ServiceAccountSchema
+import com.equisoft.accountservice.sdk.models.ServiceAccountUpdateSchema
+import com.equisoft.accountservice.sdk.models.ServiceAccountUuidSchema
 
 import com.equisoft.accountservice.sdk.infrastructure.ApiClient
 import com.equisoft.accountservice.sdk.infrastructure.ClientException
@@ -40,30 +41,22 @@ class ServiceAccountApi(basePath: kotlin.String = defaultBasePath) : ApiClient(b
     * Creates a new service account
     * 
     * @param serviceAccountCreationSchema  
-    * @return ServiceAccountCreatedSchema
+    * @return ServiceAccountUuidSchema
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createServiceAccount(serviceAccountCreationSchema: ServiceAccountCreationSchema) : ServiceAccountCreatedSchema {
-        val localVariableBody: kotlin.Any? = serviceAccountCreationSchema
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/serviceAccounts",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val localVarResponse = request<ServiceAccountCreatedSchema>(
-            localVariableConfig,
-            localVariableBody
+    fun createServiceAccount(serviceAccountCreationSchema: ServiceAccountCreationSchema) : ServiceAccountUuidSchema {
+        val localVariableConfig = createServiceAccountRequestConfig(serviceAccountCreationSchema = serviceAccountCreationSchema)
+
+        val localVarResponse = request<ServiceAccountUuidSchema>(
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceAccountCreatedSchema
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceAccountUuidSchema
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -78,6 +71,28 @@ class ServiceAccountApi(basePath: kotlin.String = defaultBasePath) : ApiClient(b
     }
 
     /**
+    * To obtain the request config of the operation createServiceAccount
+    *
+    * @param serviceAccountCreationSchema  
+    * @return RequestConfig
+    */
+    fun createServiceAccountRequestConfig(serviceAccountCreationSchema: ServiceAccountCreationSchema) : RequestConfig {
+        val localVariableBody: kotlin.Any? = serviceAccountCreationSchema
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.POST,
+            path = "/serviceAccounts",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
     * Get detailed information about a user account.
     * 
     * @param uuid Service account identifier 
@@ -89,18 +104,10 @@ class ServiceAccountApi(basePath: kotlin.String = defaultBasePath) : ApiClient(b
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
     fun getServiceAccount(uuid: kotlin.String) : ServiceAccountSchema {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/serviceAccounts/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
+        val localVariableConfig = getServiceAccountRequestConfig(uuid = uuid)
+
         val localVarResponse = request<ServiceAccountSchema>(
-            localVariableConfig,
-            localVariableBody
+            localVariableConfig
         )
 
         return when (localVarResponse.responseType) {
@@ -116,6 +123,145 @@ class ServiceAccountApi(basePath: kotlin.String = defaultBasePath) : ApiClient(b
                 throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
+    }
+
+    /**
+    * To obtain the request config of the operation getServiceAccount
+    *
+    * @param uuid Service account identifier 
+    * @return RequestConfig
+    */
+    fun getServiceAccountRequestConfig(uuid: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/serviceAccounts/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
+    * Searches service accounts that match ALL params. If none are provided, returns all service accounts
+    * 
+    * @param name  (optional)
+    * @return kotlin.collections.List<ServiceAccountSchema>
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun searchServiceAccount(name: kotlin.String?) : kotlin.collections.List<ServiceAccountSchema> {
+        val localVariableConfig = searchServiceAccountRequestConfig(name = name)
+
+        val localVarResponse = request<kotlin.collections.List<ServiceAccountSchema>>(
+            localVariableConfig
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<ServiceAccountSchema>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * To obtain the request config of the operation searchServiceAccount
+    *
+    * @param name  (optional)
+    * @return RequestConfig
+    */
+    fun searchServiceAccountRequestConfig(name: kotlin.String?) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
+            .apply {
+                if (name != null) {
+                    put("name", listOf(name.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/serviceAccounts",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
+    * Updates a service account by uuid
+    * 
+    * @param uuid Service account identifier 
+    * @param serviceAccountUpdateSchema  
+    * @return ServiceAccountUuidSchema
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun updateServiceAccount(uuid: kotlin.String, serviceAccountUpdateSchema: ServiceAccountUpdateSchema) : ServiceAccountUuidSchema {
+        val localVariableConfig = updateServiceAccountRequestConfig(uuid = uuid, serviceAccountUpdateSchema = serviceAccountUpdateSchema)
+
+        val localVarResponse = request<ServiceAccountUuidSchema>(
+            localVariableConfig
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ServiceAccountUuidSchema
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * To obtain the request config of the operation updateServiceAccount
+    *
+    * @param uuid Service account identifier 
+    * @param serviceAccountUpdateSchema  
+    * @return RequestConfig
+    */
+    fun updateServiceAccountRequestConfig(uuid: kotlin.String, serviceAccountUpdateSchema: ServiceAccountUpdateSchema) : RequestConfig {
+        val localVariableBody: kotlin.Any? = serviceAccountUpdateSchema
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/serviceAccounts/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
 }

@@ -22,35 +22,42 @@ import com.squareup.moshi.Json
  * @param sessionId Globally unique identifier.
  * @param state 
  * @param created 
+ * @param suspend 
  * @param expire 
  * @param user 
- * @param actor 
- * @param sso 
  * @param enabledForEquisoftConnect Session is enabled for Equisoft/Connect and is accounted for concurrent access.
  * @param mobile Indicate that the session is initiated from a mobile device.
+ * @param cookieDomain Indicate the domain name the session cookie was emitted for.
+ * @param actor 
+ * @param sso 
  */
 
 data class Session (
     /* Globally unique identifier. */
     @Json(name = "sessionId")
-    val sessionId: kotlin.String? = null,
+    val sessionId: kotlin.String,
     @Json(name = "state")
-    val state: SessionState? = null,
+    val state: SessionState,
     @Json(name = "created")
-    val created: java.time.OffsetDateTime? = null,
+    val created: java.time.OffsetDateTime,
+    @Json(name = "suspend")
+    val suspend: java.time.OffsetDateTime,
     @Json(name = "expire")
-    val expire: java.time.OffsetDateTime? = null,
+    val expire: java.time.OffsetDateTime,
     @Json(name = "user")
-    val user: User? = null,
+    val user: User,
+    /* Session is enabled for Equisoft/Connect and is accounted for concurrent access. */
+    @Json(name = "enabledForEquisoftConnect")
+    val enabledForEquisoftConnect: kotlin.Boolean,
+    /* Indicate that the session is initiated from a mobile device. */
+    @Json(name = "mobile")
+    val mobile: kotlin.Boolean,
+    /* Indicate the domain name the session cookie was emitted for. */
+    @Json(name = "cookieDomain")
+    val cookieDomain: kotlin.String? = null,
     @Json(name = "actor")
     val actor: User? = null,
     @Json(name = "sso")
-    val sso: SsoProvider? = null,
-    /* Session is enabled for Equisoft/Connect and is accounted for concurrent access. */
-    @Json(name = "enabledForEquisoftConnect")
-    val enabledForEquisoftConnect: kotlin.Boolean? = null,
-    /* Indicate that the session is initiated from a mobile device. */
-    @Json(name = "mobile")
-    val mobile: kotlin.Boolean? = null
+    val sso: SsoProvider? = null
 )
 
