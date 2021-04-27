@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteUserSessions**](UserApi.md#deleteUserSessions) | **DELETE** /users/{uuid}/sessions | Delete all sessions for the user.
 [**getUser**](UserApi.md#getUser) | **GET** /users/{uuid} | Get detailed information about a user account.
+[**getUserPermissions**](UserApi.md#getUserPermissions) | **GET** /users/{uuid}/permissions | Get user permissions
 [**getUuidById**](UserApi.md#getUuidById) | **GET** /users/{id}/uuid | Find an uuid by id.
 [**listUsers**](UserApi.md#listUsers) | **GET** /users | Searches accounts that match ALL params. If no search parameters are provided, returns all users.
 
@@ -89,6 +90,51 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getUserPermissions"></a>
+# **getUserPermissions**
+> UserPermissions getUserPermissions(uuid)
+
+Get user permissions
+
+### Example
+```kotlin
+// Import classes:
+//import com.equisoft.accountservice.sdk.infrastructure.*
+//import com.equisoft.accountservice.sdk.models.*
+
+val apiInstance = UserApi()
+val uuid : kotlin.String = uuid_example // kotlin.String | The user account's identifier
+try {
+    val result : UserPermissions = apiInstance.getUserPermissions(uuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UserApi#getUserPermissions")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UserApi#getUserPermissions")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **kotlin.String**| The user account&#39;s identifier |
+
+### Return type
+
+[**UserPermissions**](UserPermissions.md)
 
 ### Authorization
 

@@ -10,6 +10,7 @@ docs/ErrorMessage.md
 docs/ErrorPayload.md
 docs/Id.md
 docs/ImpersonatePayload.md
+docs/LegacyRoleSchema.md
 docs/LocalizedString.md
 docs/Organization.md
 docs/OrganizationApi.md
@@ -18,6 +19,7 @@ docs/OrganizationRoleApi.md
 docs/PermissionApi.md
 docs/PermissionCreated.md
 docs/RoleCreated.md
+docs/RolesOnOrganization.md
 docs/ServiceAccess.md
 docs/ServiceAccountApi.md
 docs/ServiceAccountCreationSchema.md
@@ -33,10 +35,13 @@ docs/SessionState.md
 docs/SsoProvider.md
 docs/SsoToken.md
 docs/User.md
+docs/UserAccountPermission.md
+docs/UserAccountRole.md
 docs/UserAccountSearchResult.md
 docs/UserAgreement.md
 docs/UserAgreementState.md
 docs/UserApi.md
+docs/UserPermissions.md
 docs/UserState.md
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -73,11 +78,13 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/ErrorMessage.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/ErrorPayload.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/Id.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/ImpersonatePayload.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/LegacyRoleSchema.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/LocalizedString.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/Organization.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/PermissionCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RoleCreated.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/RolesOnOrganization.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/ServiceAccess.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/ServiceAccountCreationSchema.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/ServiceAccountSchema.kt
@@ -91,7 +98,10 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/SessionState.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/SsoProvider.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/SsoToken.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/User.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountPermission.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountRole.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountSearchResult.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAgreement.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAgreementState.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/UserPermissions.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserState.kt

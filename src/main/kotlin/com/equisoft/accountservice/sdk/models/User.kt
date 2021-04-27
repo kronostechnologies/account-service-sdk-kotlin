@@ -25,12 +25,13 @@ import com.squareup.moshi.Json
  * @param email 
  * @param locale 
  * @param state 
- * @param roles Roles the user is member a member of.
+ * @param roles Legacy roles the user is member of. Use legacyRole because this property will eventually be used for next-generation roles
  * @param deletable User deletion is disabled.
  * @param billable User is accounted for billing.
  * @param agreement 
  * @param services 
  * @param mobilePhone Mobile phone used for sms password reset.
+ * @param legacyRoles Legacy roles the user is member of
  * @param created 
  */
 
@@ -47,8 +48,9 @@ data class User (
     val locale: kotlin.String,
     @Json(name = "state")
     val state: UserState,
-    /* Roles the user is member a member of. */
+    /* Legacy roles the user is member of. Use legacyRole because this property will eventually be used for next-generation roles */
     @Json(name = "roles")
+    @Deprecated(message = "This property is deprecated.")
     val roles: kotlin.collections.List<kotlin.String>,
     /* User deletion is disabled. */
     @Json(name = "deletable")
@@ -63,6 +65,9 @@ data class User (
     /* Mobile phone used for sms password reset. */
     @Json(name = "mobilePhone")
     val mobilePhone: kotlin.String? = null,
+    /* Legacy roles the user is member of */
+    @Json(name = "legacyRoles")
+    val legacyRoles: kotlin.collections.List<kotlin.String>? = null,
     @Json(name = "created")
     val created: java.time.OffsetDateTime? = null
 )

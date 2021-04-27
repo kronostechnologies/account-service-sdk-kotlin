@@ -15,6 +15,7 @@ import com.equisoft.accountservice.sdk.models.ErrorPayload
 import com.equisoft.accountservice.sdk.models.Id
 import com.equisoft.accountservice.sdk.models.User
 import com.equisoft.accountservice.sdk.models.UserAccountSearchResult
+import com.equisoft.accountservice.sdk.models.UserPermissions
 
 import com.equisoft.accountservice.sdk.infrastructure.ApiClient
 import com.equisoft.accountservice.sdk.infrastructure.ClientException
@@ -137,6 +138,61 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
         val localVariableConfig = RequestConfig(
             method = RequestMethod.GET,
             path = "/users/{uuid}".replace("{"+"uuid"+"}", "$uuid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
+    * Get user permissions
+    * 
+    * @param uuid The user account&#39;s identifier 
+    * @return UserPermissions
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun getUserPermissions(uuid: kotlin.String) : UserPermissions {
+        val localVariableConfig = getUserPermissionsRequestConfig(uuid = uuid)
+
+        val localVarResponse = request<UserPermissions>(
+            localVariableConfig
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as UserPermissions
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * To obtain the request config of the operation getUserPermissions
+    *
+    * @param uuid The user account&#39;s identifier 
+    * @return RequestConfig
+    */
+    fun getUserPermissionsRequestConfig(uuid: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.GET,
+            path = "/users/{uuid}/permissions".replace("{"+"uuid"+"}", "$uuid"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             body = localVariableBody

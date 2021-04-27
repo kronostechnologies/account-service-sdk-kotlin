@@ -60,6 +60,7 @@ Class | Method | HTTP request | Description
 *SessionApi* | [**setSessionSsoToken**](docs/SessionApi.md#setsessionssotoken) | **PUT** /sessions/{uuid}/tokens/{tokenId} | Store a sso token for the session for a given id/name/type
 *UserApi* | [**deleteUserSessions**](docs/UserApi.md#deleteusersessions) | **DELETE** /users/{uuid}/sessions | Delete all sessions for the user.
 *UserApi* | [**getUser**](docs/UserApi.md#getuser) | **GET** /users/{uuid} | Get detailed information about a user account.
+*UserApi* | [**getUserPermissions**](docs/UserApi.md#getuserpermissions) | **GET** /users/{uuid}/permissions | Get user permissions
 *UserApi* | [**getUuidById**](docs/UserApi.md#getuuidbyid) | **GET** /users/{id}/uuid | Find an uuid by id.
 *UserApi* | [**listUsers**](docs/UserApi.md#listusers) | **GET** /users | Searches accounts that match ALL params. If no search parameters are provided, returns all users.
 
@@ -77,11 +78,13 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.ErrorPayload](docs/ErrorPayload.md)
  - [com.equisoft.accountservice.sdk.models.Id](docs/Id.md)
  - [com.equisoft.accountservice.sdk.models.ImpersonatePayload](docs/ImpersonatePayload.md)
+ - [com.equisoft.accountservice.sdk.models.LegacyRoleSchema](docs/LegacyRoleSchema.md)
  - [com.equisoft.accountservice.sdk.models.LocalizedString](docs/LocalizedString.md)
  - [com.equisoft.accountservice.sdk.models.Organization](docs/Organization.md)
  - [com.equisoft.accountservice.sdk.models.OrganizationCreated](docs/OrganizationCreated.md)
  - [com.equisoft.accountservice.sdk.models.PermissionCreated](docs/PermissionCreated.md)
  - [com.equisoft.accountservice.sdk.models.RoleCreated](docs/RoleCreated.md)
+ - [com.equisoft.accountservice.sdk.models.RolesOnOrganization](docs/RolesOnOrganization.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccess](docs/ServiceAccess.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountCreationSchema](docs/ServiceAccountCreationSchema.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccountSchema](docs/ServiceAccountSchema.md)
@@ -95,9 +98,12 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.SsoProvider](docs/SsoProvider.md)
  - [com.equisoft.accountservice.sdk.models.SsoToken](docs/SsoToken.md)
  - [com.equisoft.accountservice.sdk.models.User](docs/User.md)
+ - [com.equisoft.accountservice.sdk.models.UserAccountPermission](docs/UserAccountPermission.md)
+ - [com.equisoft.accountservice.sdk.models.UserAccountRole](docs/UserAccountRole.md)
  - [com.equisoft.accountservice.sdk.models.UserAccountSearchResult](docs/UserAccountSearchResult.md)
  - [com.equisoft.accountservice.sdk.models.UserAgreement](docs/UserAgreement.md)
  - [com.equisoft.accountservice.sdk.models.UserAgreementState](docs/UserAgreementState.md)
+ - [com.equisoft.accountservice.sdk.models.UserPermissions](docs/UserPermissions.md)
  - [com.equisoft.accountservice.sdk.models.UserState](docs/UserState.md)
 
 
