@@ -21,7 +21,7 @@ import com.squareup.moshi.Json
  * 
  * @param uuid 
  * @param name 
- * @param parents 
+ * @param path List of parents uuids, ordered by oldest ancestor
  * @param roles 
  * @param permissions 
  */
@@ -31,8 +31,9 @@ data class RolesOnOrganization (
     val uuid: kotlin.String? = null,
     @Json(name = "name")
     val name: LocalizedString? = null,
-    @Json(name = "parents")
-    val parents: kotlin.collections.List<kotlin.String>? = null,
+    /* List of parents uuids, ordered by oldest ancestor */
+    @Json(name = "path")
+    val path: kotlin.collections.List<kotlin.String>? = null,
     @Json(name = "roles")
     val roles: kotlin.collections.List<UserAccountRole>? = null,
     @Json(name = "permissions")
