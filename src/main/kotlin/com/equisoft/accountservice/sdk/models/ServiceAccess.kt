@@ -28,7 +28,7 @@ import com.squareup.moshi.Json
 
 data class ServiceAccess (
     @Json(name = "serviceName")
-    val serviceName: ServiceName? = null,
+    val serviceName: ServiceName,
     @Json(name = "databaseId")
     val databaseId: kotlin.Long? = null,
     @Json(name = "databaseName")

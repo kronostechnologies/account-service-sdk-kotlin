@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**serviceName** | [**ServiceName**](ServiceName.md) |  |  [optional]
+**serviceName** | [**ServiceName**](ServiceName.md) |  | 
 **databaseId** | **kotlin.Long** |  |  [optional]
 **databaseName** | **kotlin.String** |  |  [optional]
 **databaseState** | [**DatabaseState**](DatabaseState.md) |  |  [optional]

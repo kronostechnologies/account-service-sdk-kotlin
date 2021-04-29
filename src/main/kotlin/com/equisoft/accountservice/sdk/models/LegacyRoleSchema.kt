@@ -16,15 +16,15 @@ import com.equisoft.accountservice.sdk.models.LocalizedString
 import com.squareup.moshi.Json
 
 /**
- * 
+ * User legacy roles
  * @param code 
  * @param name 
  */
 
 data class LegacyRoleSchema (
     @Json(name = "code")
-    val code: kotlin.String? = null,
+    val code: kotlin.String,
     @Json(name = "name")
-    val name: LocalizedString? = null
+    val name: LocalizedString
 )
 

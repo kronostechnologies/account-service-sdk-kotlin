@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **kotlin.String** |  |  [optional]
-**clientId** | **kotlin.String** |  |  [optional]
-**displayName** | **kotlin.String** |  |  [optional]
+**name** | **kotlin.String** |  | 
+**clientId** | **kotlin.String** |  | 
+**displayName** | **kotlin.String** |  | 
 
 
 

@@ -24,10 +24,10 @@ import com.squareup.moshi.Json
 
 data class RoleCreated (
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null,
+    val uuid: kotlin.String,
     @Json(name = "name")
-    val name: LocalizedString? = null,
+    val name: LocalizedString,
     @Json(name = "permissions")
-    val permissions: kotlin.collections.List<kotlin.String>? = null
+    val permissions: kotlin.collections.List<kotlin.String>
 )
 

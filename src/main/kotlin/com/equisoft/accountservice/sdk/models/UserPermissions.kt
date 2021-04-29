@@ -24,8 +24,8 @@ import com.squareup.moshi.Json
 
 data class UserPermissions (
     @Json(name = "organizations")
-    val organizations: kotlin.collections.List<RolesOnOrganization>? = null,
+    val organizations: kotlin.collections.List<RolesOnOrganization>,
     @Json(name = "legacyRoles")
-    val legacyRoles: kotlin.collections.List<LegacyRoleSchema>? = null
+    val legacyRoles: kotlin.collections.List<LegacyRoleSchema>
 )
 

@@ -28,15 +28,15 @@ import com.squareup.moshi.Json
 
 data class RolesOnOrganization (
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null,
+    val uuid: kotlin.String,
     @Json(name = "name")
-    val name: LocalizedString? = null,
+    val name: LocalizedString,
     /* List of parents uuids, ordered by oldest ancestor */
     @Json(name = "path")
-    val path: kotlin.collections.List<kotlin.String>? = null,
+    val path: kotlin.collections.List<kotlin.String>,
     @Json(name = "roles")
-    val roles: kotlin.collections.List<UserAccountRole>? = null,
+    val roles: kotlin.collections.List<UserAccountRole>,
     @Json(name = "permissions")
-    val permissions: kotlin.collections.List<UserAccountPermission>? = null
+    val permissions: kotlin.collections.List<UserAccountPermission>
 )
 

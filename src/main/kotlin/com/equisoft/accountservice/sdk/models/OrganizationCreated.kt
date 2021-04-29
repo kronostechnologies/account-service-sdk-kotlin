@@ -21,6 +21,6 @@ import com.squareup.moshi.Json
 
 data class OrganizationCreated (
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null
+    val uuid: kotlin.String
 )
 

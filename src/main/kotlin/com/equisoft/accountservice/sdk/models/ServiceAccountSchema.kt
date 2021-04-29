@@ -28,17 +28,17 @@ import com.squareup.moshi.Json
 
 data class ServiceAccountSchema (
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null,
+    val uuid: kotlin.String,
     @Json(name = "name")
-    val name: kotlin.String? = null,
+    val name: kotlin.String,
     @Json(name = "clientId")
-    val clientId: kotlin.String? = null,
+    val clientId: kotlin.String,
     @Json(name = "displayName")
-    val displayName: kotlin.String? = null,
+    val displayName: kotlin.String,
     @Json(name = "status")
-    val status: ServiceAccountStatus? = null,
+    val status: ServiceAccountStatus,
     @Json(name = "createdAt")
-    val createdAt: java.time.OffsetDateTime? = null,
+    val createdAt: java.time.OffsetDateTime,
     @Json(name = "modifiedAt")
     val modifiedAt: java.time.OffsetDateTime? = null
 )

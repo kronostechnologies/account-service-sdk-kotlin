@@ -23,8 +23,8 @@ import com.squareup.moshi.Json
 
 data class CreateRole (
     @Json(name = "name")
-    val name: LocalizedString? = null,
+    val name: LocalizedString,
     @Json(name = "permissions")
-    val permissions: kotlin.collections.List<kotlin.String>? = null
+    val permissions: kotlin.collections.List<kotlin.String>
 )
 

@@ -19,26 +19,26 @@ import com.squareup.moshi.Json
  * 
  * @param uuid 
  * @param name 
- * @param parentUuid 
  * @param equisoftConnectProfiles 
  * @param equisoftPlanProfiles 
  * @param createdAt 
+ * @param parentUuid 
  * @param modifiedAt 
  */
 
 data class Organization (
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null,
+    val uuid: kotlin.String,
     @Json(name = "name")
-    val name: LocalizedString? = null,
+    val name: LocalizedString,
+    @Json(name = "equisoftConnectProfiles")
+    val equisoftConnectProfiles: kotlin.collections.List<kotlin.String>,
+    @Json(name = "equisoftPlanProfiles")
+    val equisoftPlanProfiles: kotlin.collections.List<kotlin.String>,
+    @Json(name = "createdAt")
+    val createdAt: java.time.OffsetDateTime,
     @Json(name = "parentUuid")
     val parentUuid: kotlin.String? = null,
-    @Json(name = "equisoftConnectProfiles")
-    val equisoftConnectProfiles: kotlin.collections.List<kotlin.String>? = null,
-    @Json(name = "equisoftPlanProfiles")
-    val equisoftPlanProfiles: kotlin.collections.List<kotlin.String>? = null,
-    @Json(name = "createdAt")
-    val createdAt: java.time.OffsetDateTime? = null,
     @Json(name = "modifiedAt")
     val modifiedAt: java.time.OffsetDateTime? = null
 )

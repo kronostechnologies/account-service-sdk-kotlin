@@ -23,8 +23,8 @@ import com.squareup.moshi.Json
 
 data class UserAccountRole (
     @Json(name = "uuid")
-    val uuid: kotlin.String? = null,
+    val uuid: kotlin.String,
     @Json(name = "name")
-    val name: LocalizedString? = null
+    val name: LocalizedString
 )
 

@@ -25,11 +25,11 @@ import com.squareup.moshi.Json
 
 data class CreateOrganizationPayload (
     @Json(name = "name")
-    val name: LocalizedString? = null,
+    val name: LocalizedString,
     @Json(name = "equisoftConnectProfiles")
-    val equisoftConnectProfiles: kotlin.collections.List<kotlin.String>? = null,
+    val equisoftConnectProfiles: kotlin.collections.List<kotlin.String>,
     @Json(name = "equisoftPlanProfiles")
-    val equisoftPlanProfiles: kotlin.collections.List<kotlin.String>? = null,
+    val equisoftPlanProfiles: kotlin.collections.List<kotlin.String>,
     @Json(name = "parentUuid")
     val parentUuid: kotlin.String? = null
 )

@@ -22,8 +22,8 @@ import com.squareup.moshi.Json
 
 data class LocalizedString (
     @Json(name = "values")
-    val values: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
+    val values: kotlin.collections.Map<kotlin.String, kotlin.String>,
     @Json(name = "defaultLocale")
-    val defaultLocale: kotlin.String? = null
+    val defaultLocale: kotlin.String
 )
 

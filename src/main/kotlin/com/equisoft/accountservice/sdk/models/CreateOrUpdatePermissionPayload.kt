@@ -22,6 +22,6 @@ import com.squareup.moshi.Json
 
 data class CreateOrUpdatePermissionPayload (
     @Json(name = "name")
-    val name: LocalizedString? = null
+    val name: LocalizedString
 )
 

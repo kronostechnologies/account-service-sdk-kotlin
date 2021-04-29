@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **kotlin.String** |  |  [optional]
-**name** | **kotlin.String** |  |  [optional]
-**clientId** | **kotlin.String** |  |  [optional]
-**displayName** | **kotlin.String** |  |  [optional]
-**status** | [**ServiceAccountStatus**](ServiceAccountStatus.md) |  |  [optional]
-**createdAt** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional]
+**uuid** | **kotlin.String** |  | 
+**name** | **kotlin.String** |  | 
+**clientId** | **kotlin.String** |  | 
+**displayName** | **kotlin.String** |  | 
+**status** | [**ServiceAccountStatus**](ServiceAccountStatus.md) |  | 
+**createdAt** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
 **modifiedAt** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional]
 
 

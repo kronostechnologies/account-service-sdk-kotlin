@@ -1,5 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.4.30'
+
     repositories {
         maven { url "https://repo1.maven.org/maven2" }
     }
@@ -7,22 +8,29 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
+
 plugins {
     id("maven-publish")
 }
+
 group 'com.equisoft.accountservice.sdk'
 version project.findProperty("application.version") ?:  "dev-SNAPSHOT"
+
 wrapper {
     gradleVersion = '6.8.3'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
+
 apply plugin: 'kotlin'
+
 repositories {
     maven { url "https://repo1.maven.org/maven2" }
 }
+
 test {
     useJUnitPlatform()
 }
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
@@ -30,9 +38,11 @@ dependencies {
     compile "com.squareup.okhttp3:okhttp:4.9.0"
     testCompile "io.kotlintest:kotlintest-runner-junit5:3.4.2"
 }
+
 java {
     targetCompatibility = JavaVersion.VERSION_13
 }
+
 publishing {
     repositories {
         maven {
@@ -50,3 +60,4 @@ publishing {
         }
     }
 }
+

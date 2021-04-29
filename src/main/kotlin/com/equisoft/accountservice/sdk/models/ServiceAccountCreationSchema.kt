@@ -23,10 +23,10 @@ import com.squareup.moshi.Json
 
 data class ServiceAccountCreationSchema (
     @Json(name = "name")
-    val name: kotlin.String? = null,
+    val name: kotlin.String,
     @Json(name = "clientId")
-    val clientId: kotlin.String? = null,
+    val clientId: kotlin.String,
     @Json(name = "displayName")
-    val displayName: kotlin.String? = null
+    val displayName: kotlin.String
 )
 

@@ -23,8 +23,8 @@ import com.squareup.moshi.Json
 
 data class UserAccountPermission (
     @Json(name = "code")
-    val code: kotlin.String? = null,
+    val code: kotlin.String,
     @Json(name = "name")
-    val name: LocalizedString? = null
+    val name: LocalizedString
 )
 
