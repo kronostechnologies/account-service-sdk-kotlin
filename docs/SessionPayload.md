@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **publicComputer** | **kotlin.Boolean** | Indicate that the session is initiated from a public computer. |  [optional]
 **mobileDevice** | **kotlin.Boolean** | Indicate that the session is initiated from a mobile device. |  [optional]
 **cookieDomain** | **kotlin.String** | Indicate the domain name the session cookie was emitted for. If null, the cookie is assumed to be on the current hostname. |  [optional]
-**isPublicComputer** | **kotlin.Boolean** | Indicate that the session is initiated from a public computer. |  [optional]
-**isMobileDevice** | **kotlin.Boolean** | Indicate that the session is initiated from a mobile device. |  [optional]
 
 
 

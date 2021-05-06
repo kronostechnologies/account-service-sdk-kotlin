@@ -11,22 +11,27 @@
 */
 package com.equisoft.accountservice.sdk.models
 
+import com.equisoft.accountservice.sdk.models.LocalizedString
+import com.equisoft.accountservice.sdk.models.Path
 
 import com.squareup.moshi.Json
 
 /**
- * A request to create a new account
+ * 
+ * @param uuid 
  * @param name 
- * @param clientId 
- * @param displayName 
+ * @param path 
+ * @param parentUuid 
  */
 
-data class ServiceAccountCreationSchema (
+data class ListOrganizationElement (
+    @Json(name = "uuid")
+    val uuid: kotlin.String,
     @Json(name = "name")
-    val name: kotlin.String,
-    @Json(name = "clientId")
-    val clientId: kotlin.String,
-    @Json(name = "displayName")
-    val displayName: kotlin.String
+    val name: LocalizedString,
+    @Json(name = "path")
+    val path: kotlin.collections.List<Path>,
+    @Json(name = "parentUuid")
+    val parentUuid: kotlin.String? = null
 )
 

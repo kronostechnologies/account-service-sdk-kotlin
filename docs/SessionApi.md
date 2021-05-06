@@ -235,7 +235,7 @@ No authorization required
 
 <a name="enableSession"></a>
 # **enableSession**
-> enableSession(uuid)
+> enableSession(uuid, body)
 
 Allow activation for sessions created with enable&#x3D;false. This may be extended to enable specific services. Disabled sessions are not allowed to be used by first-party application (Equisoft/Connect, Equisoft/Plan).
 
@@ -247,8 +247,9 @@ Allow activation for sessions created with enable&#x3D;false. This may be extend
 
 val apiInstance = SessionApi()
 val uuid : kotlin.String = uuid_example // kotlin.String | 
+val body : kotlin.String = body_example // kotlin.String | 
 try {
-    apiInstance.enableSession(uuid)
+    apiInstance.enableSession(uuid, body)
 } catch (e: ClientException) {
     println("4xx response calling SessionApi#enableSession")
     e.printStackTrace()
@@ -263,6 +264,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **kotlin.String**|  |
+ **body** | **kotlin.String**|  | [optional]
 
 ### Return type
 
@@ -274,7 +276,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: text/plain
  - **Accept**: application/json
 
 <a name="enableSessionForEquisoftConnect"></a>
@@ -468,7 +470,7 @@ No authorization required
 
 <a name="revertIdentity"></a>
 # **revertIdentity**
-> Session revertIdentity(uuid)
+> Session revertIdentity(uuid, body)
 
 Revert an impersonated session to the context of the \&quot;admin\&quot; user who initiated the impersonation.
 
@@ -480,8 +482,9 @@ Revert an impersonated session to the context of the \&quot;admin\&quot; user wh
 
 val apiInstance = SessionApi()
 val uuid : kotlin.String = uuid_example // kotlin.String | 
+val body : kotlin.String = body_example // kotlin.String | 
 try {
-    val result : Session = apiInstance.revertIdentity(uuid)
+    val result : Session = apiInstance.revertIdentity(uuid, body)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SessionApi#revertIdentity")
@@ -497,6 +500,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **kotlin.String**|  |
+ **body** | **kotlin.String**|  | [optional]
 
 ### Return type
 
@@ -508,7 +512,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: text/plain
  - **Accept**: application/json
 
 <a name="setSessionSsoToken"></a>

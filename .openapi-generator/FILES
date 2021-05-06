@@ -11,11 +11,14 @@ docs/ErrorPayload.md
 docs/Id.md
 docs/ImpersonatePayload.md
 docs/LegacyRoleSchema.md
+docs/ListOrganizationElement.md
+docs/ListUserOrganizations.md
 docs/LocalizedString.md
 docs/Organization.md
 docs/OrganizationApi.md
 docs/OrganizationCreated.md
-docs/OrganizationRoleApi.md
+docs/OrganizationPathElement.md
+docs/Path.md
 docs/PermissionApi.md
 docs/PermissionCreated.md
 docs/RoleCreated.md
@@ -49,7 +52,6 @@ gradlew
 gradlew.bat
 settings.gradle
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/OrganizationApi.kt
-src/main/kotlin/com/equisoft/accountservice/sdk/apis/OrganizationRoleApi.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/PermissionApi.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/ServiceAccountApi.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/SessionApi.kt
@@ -79,9 +81,13 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/ErrorPayload.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/Id.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/ImpersonatePayload.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/LegacyRoleSchema.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/ListOrganizationElement.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/ListUserOrganizations.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/LocalizedString.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/Organization.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationCreated.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationPathElement.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/Path.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/PermissionCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RoleCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RolesOnOrganization.kt

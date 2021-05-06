@@ -36,11 +36,11 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OrganizationApi* | [**createOrUpdateOrganization**](docs/OrganizationApi.md#createorupdateorganization) | **PUT** /organizations/{uuid} | Create or update an organization for a given uuid
+*OrganizationApi* | [**createOrUpdateRole**](docs/OrganizationApi.md#createorupdaterole) | **PUT** /organizations/{uuid}/roles/{roleId} | Create or update organization roles for a given uuid
 *OrganizationApi* | [**createOrganization**](docs/OrganizationApi.md#createorganization) | **POST** /organizations | Creates a new organization
+*OrganizationApi* | [**createRole**](docs/OrganizationApi.md#createrole) | **POST** /organizations/{uuid}/roles | Create organization roles for a given uuid
 *OrganizationApi* | [**getOrganization**](docs/OrganizationApi.md#getorganization) | **GET** /organizations/{uuid} | Get detailed information about an organization.
 *OrganizationApi* | [**listOrganization**](docs/OrganizationApi.md#listorganization) | **GET** /organizations | List organizations
-*OrganizationRoleApi* | [**createOrUpdateRole**](docs/OrganizationRoleApi.md#createorupdaterole) | **PUT** /organizations/{organisationId}/roles/{roleId} | Create or update organization roles for a given uuid
-*OrganizationRoleApi* | [**createRole**](docs/OrganizationRoleApi.md#createrole) | **POST** /organizations/{organizationId}/roles | Create organization roles for a given uuid
 *PermissionApi* | [**createOrUpdatePermission**](docs/PermissionApi.md#createorupdatepermission) | **PUT** /permissions/{code} | Create or update a permission for a given code
 *ServiceAccountApi* | [**createServiceAccount**](docs/ServiceAccountApi.md#createserviceaccount) | **POST** /serviceAccounts | Creates a new service account
 *ServiceAccountApi* | [**getServiceAccount**](docs/ServiceAccountApi.md#getserviceaccount) | **GET** /serviceAccounts/{uuid} | Get detailed information about a user account.
@@ -79,9 +79,13 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.Id](docs/Id.md)
  - [com.equisoft.accountservice.sdk.models.ImpersonatePayload](docs/ImpersonatePayload.md)
  - [com.equisoft.accountservice.sdk.models.LegacyRoleSchema](docs/LegacyRoleSchema.md)
+ - [com.equisoft.accountservice.sdk.models.ListOrganizationElement](docs/ListOrganizationElement.md)
+ - [com.equisoft.accountservice.sdk.models.ListUserOrganizations](docs/ListUserOrganizations.md)
  - [com.equisoft.accountservice.sdk.models.LocalizedString](docs/LocalizedString.md)
  - [com.equisoft.accountservice.sdk.models.Organization](docs/Organization.md)
  - [com.equisoft.accountservice.sdk.models.OrganizationCreated](docs/OrganizationCreated.md)
+ - [com.equisoft.accountservice.sdk.models.OrganizationPathElement](docs/OrganizationPathElement.md)
+ - [com.equisoft.accountservice.sdk.models.Path](docs/Path.md)
  - [com.equisoft.accountservice.sdk.models.PermissionCreated](docs/PermissionCreated.md)
  - [com.equisoft.accountservice.sdk.models.RoleCreated](docs/RoleCreated.md)
  - [com.equisoft.accountservice.sdk.models.RolesOnOrganization](docs/RolesOnOrganization.md)
