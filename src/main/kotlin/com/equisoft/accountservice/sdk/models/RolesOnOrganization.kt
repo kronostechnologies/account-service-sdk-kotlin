@@ -12,6 +12,7 @@
 package com.equisoft.accountservice.sdk.models
 
 import com.equisoft.accountservice.sdk.models.LocalizedString
+import com.equisoft.accountservice.sdk.models.OrganizationPathElement
 import com.equisoft.accountservice.sdk.models.UserAccountPermission
 import com.equisoft.accountservice.sdk.models.UserAccountRole
 
@@ -33,7 +34,7 @@ data class RolesOnOrganization (
     val name: LocalizedString,
     /* List of parents uuids, ordered by oldest ancestor */
     @Json(name = "path")
-    val path: kotlin.collections.List<kotlin.String>,
+    val path: kotlin.collections.List<OrganizationPathElement>,
     @Json(name = "roles")
     val roles: kotlin.collections.List<UserAccountRole>,
     @Json(name = "permissions")

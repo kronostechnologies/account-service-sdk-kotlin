@@ -18,7 +18,6 @@ docs/Organization.md
 docs/OrganizationApi.md
 docs/OrganizationCreated.md
 docs/OrganizationPathElement.md
-docs/Path.md
 docs/PermissionApi.md
 docs/PermissionCreated.md
 docs/RoleCreated.md
@@ -87,7 +86,6 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/LocalizedString.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/Organization.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationPathElement.kt
-src/main/kotlin/com/equisoft/accountservice/sdk/models/Path.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/PermissionCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RoleCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RolesOnOrganization.kt
