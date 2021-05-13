@@ -85,7 +85,6 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.Organization](docs/Organization.md)
  - [com.equisoft.accountservice.sdk.models.OrganizationCreated](docs/OrganizationCreated.md)
  - [com.equisoft.accountservice.sdk.models.OrganizationPathElement](docs/OrganizationPathElement.md)
- - [com.equisoft.accountservice.sdk.models.Path](docs/Path.md)
  - [com.equisoft.accountservice.sdk.models.PermissionCreated](docs/PermissionCreated.md)
  - [com.equisoft.accountservice.sdk.models.RoleCreated](docs/RoleCreated.md)
  - [com.equisoft.accountservice.sdk.models.RolesOnOrganization](docs/RolesOnOrganization.md)
