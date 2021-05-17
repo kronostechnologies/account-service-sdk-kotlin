@@ -272,6 +272,7 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     * Get detailed information about an organization.
     * 
     * @param uuid The organization identifier 
+    * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)
     * @return Organization
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -279,8 +280,8 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getOrganization(uuid: kotlin.String) : Organization {
-        val localVariableConfig = getOrganizationRequestConfig(uuid = uuid)
+    fun getOrganization(uuid: kotlin.String, xUserUuid: kotlin.String?) : Organization {
+        val localVariableConfig = getOrganizationRequestConfig(uuid = uuid, xUserUuid = xUserUuid)
 
         val localVarResponse = request<Organization>(
             localVariableConfig
@@ -305,12 +306,14 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     * To obtain the request config of the operation getOrganization
     *
     * @param uuid The organization identifier 
+    * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)
     * @return RequestConfig
     */
-    fun getOrganizationRequestConfig(uuid: kotlin.String) : RequestConfig {
+    fun getOrganizationRequestConfig(uuid: kotlin.String, xUserUuid: kotlin.String?) : RequestConfig {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xUserUuid?.apply { localVariableHeaders["X-User-Uuid"] = this.toString() }
         
         val localVariableConfig = RequestConfig(
             method = RequestMethod.GET,
@@ -326,9 +329,10 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     /**
     * List organizations
     * 
-    * @param max  
-    * @param pageToken  (optional)
-    * @param parent  (optional)
+    * @param max Max number of organizations per page. 
+    * @param pageToken Page token to start with. (optional)
+    * @param parent Parent uuid. (optional)
+    * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)
     * @return ListUserOrganizations
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -336,8 +340,8 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listOrganization(max: kotlin.Int, pageToken: kotlin.String?, parent: kotlin.String?) : ListUserOrganizations {
-        val localVariableConfig = listOrganizationRequestConfig(max = max, pageToken = pageToken, parent = parent)
+    fun listOrganization(max: kotlin.Int, pageToken: kotlin.String?, parent: kotlin.String?, xUserUuid: kotlin.String?) : ListUserOrganizations {
+        val localVariableConfig = listOrganizationRequestConfig(max = max, pageToken = pageToken, parent = parent, xUserUuid = xUserUuid)
 
         val localVarResponse = request<ListUserOrganizations>(
             localVariableConfig
@@ -361,12 +365,13 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     /**
     * To obtain the request config of the operation listOrganization
     *
-    * @param max  
-    * @param pageToken  (optional)
-    * @param parent  (optional)
+    * @param max Max number of organizations per page. 
+    * @param pageToken Page token to start with. (optional)
+    * @param parent Parent uuid. (optional)
+    * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)
     * @return RequestConfig
     */
-    fun listOrganizationRequestConfig(max: kotlin.Int, pageToken: kotlin.String?, parent: kotlin.String?) : RequestConfig {
+    fun listOrganizationRequestConfig(max: kotlin.Int, pageToken: kotlin.String?, parent: kotlin.String?, xUserUuid: kotlin.String?) : RequestConfig {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
             .apply {
@@ -379,6 +384,7 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xUserUuid?.apply { localVariableHeaders["X-User-Uuid"] = this.toString() }
         
         val localVariableConfig = RequestConfig(
             method = RequestMethod.GET,

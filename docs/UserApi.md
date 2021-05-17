@@ -102,7 +102,7 @@ No authorization required
 
 <a name="getUserPermissions"></a>
 # **getUserPermissions**
-> UserPermissions getUserPermissions(uuid)
+> UserPermissions getUserPermissions(uuid, xUserUuid)
 
 Get user permissions
 
@@ -114,8 +114,9 @@ Get user permissions
 
 val apiInstance = UserApi()
 val uuid : kotlin.String = uuid_example // kotlin.String | The user account's identifier
+val xUserUuid : kotlin.String = xUserUuid_example // kotlin.String | Uuid of the user for whom the call is made. Used to apply access and security rules
 try {
-    val result : UserPermissions = apiInstance.getUserPermissions(uuid)
+    val result : UserPermissions = apiInstance.getUserPermissions(uuid, xUserUuid)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UserApi#getUserPermissions")
@@ -131,6 +132,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **kotlin.String**| The user account&#39;s identifier |
+ **xUserUuid** | **kotlin.String**| Uuid of the user for whom the call is made. Used to apply access and security rules | [optional]
 
 ### Return type
 
@@ -192,7 +194,7 @@ No authorization required
 
 <a name="listUsers"></a>
 # **listUsers**
-> kotlin.collections.List&lt;UserAccountSearchResult&gt; listUsers(identifierOrEmail, identifier, email)
+> kotlin.collections.List&lt;UserAccountSearchResult&gt; listUsers(identifierOrEmail, identifier, email, includeDeleted)
 
 Searches accounts that match ALL params. If no search parameters are provided, returns all users.
 
@@ -206,8 +208,9 @@ val apiInstance = UserApi()
 val identifierOrEmail : kotlin.String = identifierOrEmail_example // kotlin.String | 
 val identifier : kotlin.String = identifier_example // kotlin.String | 
 val email : kotlin.String = email_example // kotlin.String | 
+val includeDeleted : kotlin.Boolean = true // kotlin.Boolean | 
 try {
-    val result : kotlin.collections.List<UserAccountSearchResult> = apiInstance.listUsers(identifierOrEmail, identifier, email)
+    val result : kotlin.collections.List<UserAccountSearchResult> = apiInstance.listUsers(identifierOrEmail, identifier, email, includeDeleted)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UserApi#listUsers")
@@ -225,6 +228,7 @@ Name | Type | Description  | Notes
  **identifierOrEmail** | **kotlin.String**|  | [optional]
  **identifier** | **kotlin.String**|  | [optional]
  **email** | **kotlin.String**|  | [optional]
+ **includeDeleted** | **kotlin.Boolean**|  | [optional]
 
 ### Return type
 

@@ -202,7 +202,7 @@ No authorization required
 
 <a name="getOrganization"></a>
 # **getOrganization**
-> Organization getOrganization(uuid)
+> Organization getOrganization(uuid, xUserUuid)
 
 Get detailed information about an organization.
 
@@ -214,8 +214,9 @@ Get detailed information about an organization.
 
 val apiInstance = OrganizationApi()
 val uuid : kotlin.String = uuid_example // kotlin.String | The organization identifier
+val xUserUuid : kotlin.String = xUserUuid_example // kotlin.String | Uuid of the user for whom the call is made. Used to apply access and security rules
 try {
-    val result : Organization = apiInstance.getOrganization(uuid)
+    val result : Organization = apiInstance.getOrganization(uuid, xUserUuid)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrganizationApi#getOrganization")
@@ -231,6 +232,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **kotlin.String**| The organization identifier |
+ **xUserUuid** | **kotlin.String**| Uuid of the user for whom the call is made. Used to apply access and security rules | [optional]
 
 ### Return type
 
@@ -247,7 +249,7 @@ No authorization required
 
 <a name="listOrganization"></a>
 # **listOrganization**
-> ListUserOrganizations listOrganization(max, pageToken, parent)
+> ListUserOrganizations listOrganization(max, pageToken, parent, xUserUuid)
 
 List organizations
 
@@ -258,11 +260,12 @@ List organizations
 //import com.equisoft.accountservice.sdk.models.*
 
 val apiInstance = OrganizationApi()
-val max : kotlin.Int = 56 // kotlin.Int | 
-val pageToken : kotlin.String = pageToken_example // kotlin.String | 
-val parent : kotlin.String = parent_example // kotlin.String | 
+val max : kotlin.Int = 56 // kotlin.Int | Max number of organizations per page.
+val pageToken : kotlin.String = pageToken_example // kotlin.String | Page token to start with.
+val parent : kotlin.String = parent_example // kotlin.String | Parent uuid.
+val xUserUuid : kotlin.String = xUserUuid_example // kotlin.String | Uuid of the user for whom the call is made. Used to apply access and security rules
 try {
-    val result : ListUserOrganizations = apiInstance.listOrganization(max, pageToken, parent)
+    val result : ListUserOrganizations = apiInstance.listOrganization(max, pageToken, parent, xUserUuid)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrganizationApi#listOrganization")
@@ -277,9 +280,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **max** | **kotlin.Int**|  |
- **pageToken** | **kotlin.String**|  | [optional]
- **parent** | **kotlin.String**|  | [optional]
+ **max** | **kotlin.Int**| Max number of organizations per page. |
+ **pageToken** | **kotlin.String**| Page token to start with. | [optional]
+ **parent** | **kotlin.String**| Parent uuid. | [optional]
+ **xUserUuid** | **kotlin.String**| Uuid of the user for whom the call is made. Used to apply access and security rules | [optional]
 
 ### Return type
 

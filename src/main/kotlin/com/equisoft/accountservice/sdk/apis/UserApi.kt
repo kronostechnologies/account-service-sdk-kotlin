@@ -150,6 +150,7 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     * Get user permissions
     * 
     * @param uuid The user account&#39;s identifier 
+    * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)
     * @return UserPermissions
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -157,8 +158,8 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getUserPermissions(uuid: kotlin.String) : UserPermissions {
-        val localVariableConfig = getUserPermissionsRequestConfig(uuid = uuid)
+    fun getUserPermissions(uuid: kotlin.String, xUserUuid: kotlin.String?) : UserPermissions {
+        val localVariableConfig = getUserPermissionsRequestConfig(uuid = uuid, xUserUuid = xUserUuid)
 
         val localVarResponse = request<UserPermissions>(
             localVariableConfig
@@ -183,12 +184,14 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     * To obtain the request config of the operation getUserPermissions
     *
     * @param uuid The user account&#39;s identifier 
+    * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)
     * @return RequestConfig
     */
-    fun getUserPermissionsRequestConfig(uuid: kotlin.String) : RequestConfig {
+    fun getUserPermissionsRequestConfig(uuid: kotlin.String, xUserUuid: kotlin.String?) : RequestConfig {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        xUserUuid?.apply { localVariableHeaders["X-User-Uuid"] = this.toString() }
         
         val localVariableConfig = RequestConfig(
             method = RequestMethod.GET,
@@ -262,6 +265,7 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     * @param identifierOrEmail  (optional)
     * @param identifier  (optional)
     * @param email  (optional)
+    * @param includeDeleted  (optional)
     * @return kotlin.collections.List<UserAccountSearchResult>
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -269,8 +273,8 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listUsers(identifierOrEmail: kotlin.String?, identifier: kotlin.String?, email: kotlin.String?) : kotlin.collections.List<UserAccountSearchResult> {
-        val localVariableConfig = listUsersRequestConfig(identifierOrEmail = identifierOrEmail, identifier = identifier, email = email)
+    fun listUsers(identifierOrEmail: kotlin.String?, identifier: kotlin.String?, email: kotlin.String?, includeDeleted: kotlin.Boolean?) : kotlin.collections.List<UserAccountSearchResult> {
+        val localVariableConfig = listUsersRequestConfig(identifierOrEmail = identifierOrEmail, identifier = identifier, email = email, includeDeleted = includeDeleted)
 
         val localVarResponse = request<kotlin.collections.List<UserAccountSearchResult>>(
             localVariableConfig
@@ -297,9 +301,10 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     * @param identifierOrEmail  (optional)
     * @param identifier  (optional)
     * @param email  (optional)
+    * @param includeDeleted  (optional)
     * @return RequestConfig
     */
-    fun listUsersRequestConfig(identifierOrEmail: kotlin.String?, identifier: kotlin.String?, email: kotlin.String?) : RequestConfig {
+    fun listUsersRequestConfig(identifierOrEmail: kotlin.String?, identifier: kotlin.String?, email: kotlin.String?, includeDeleted: kotlin.Boolean?) : RequestConfig {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
             .apply {
@@ -311,6 +316,9 @@ class UserApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
                 }
                 if (email != null) {
                     put("email", listOf(email.toString()))
+                }
+                if (includeDeleted != null) {
+                    put("includeDeleted", listOf(includeDeleted.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
