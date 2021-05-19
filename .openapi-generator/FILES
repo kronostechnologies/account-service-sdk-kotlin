@@ -20,6 +20,8 @@ docs/OrganizationCreated.md
 docs/OrganizationPathElement.md
 docs/PermissionApi.md
 docs/PermissionCreated.md
+docs/Role.md
+docs/RoleApi.md
 docs/RoleCreated.md
 docs/RolesOnOrganization.md
 docs/ServiceAccess.md
@@ -52,6 +54,7 @@ gradlew.bat
 settings.gradle
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/OrganizationApi.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/PermissionApi.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/apis/RoleApi.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/ServiceAccountApi.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/SessionApi.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/apis/UserApi.kt
@@ -87,6 +90,7 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/Organization.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationPathElement.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/PermissionCreated.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/Role.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RoleCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RolesOnOrganization.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/ServiceAccess.kt

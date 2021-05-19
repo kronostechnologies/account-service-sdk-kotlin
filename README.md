@@ -39,9 +39,11 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**createOrUpdateRole**](docs/OrganizationApi.md#createorupdaterole) | **PUT** /organizations/{uuid}/roles/{roleId} | Create or update organization roles for a given uuid
 *OrganizationApi* | [**createOrganization**](docs/OrganizationApi.md#createorganization) | **POST** /organizations | Creates a new organization
 *OrganizationApi* | [**createRole**](docs/OrganizationApi.md#createrole) | **POST** /organizations/{uuid}/roles | Create organization roles for a given uuid
+*OrganizationApi* | [**deleteOrganization**](docs/OrganizationApi.md#deleteorganization) | **DELETE** /organizations/{uuid} | Delete organization
 *OrganizationApi* | [**getOrganization**](docs/OrganizationApi.md#getorganization) | **GET** /organizations/{uuid} | Get detailed information about an organization.
 *OrganizationApi* | [**listOrganization**](docs/OrganizationApi.md#listorganization) | **GET** /organizations | List organizations
 *PermissionApi* | [**createOrUpdatePermission**](docs/PermissionApi.md#createorupdatepermission) | **PUT** /permissions/{code} | Create or update a permission for a given code
+*RoleApi* | [**getRole**](docs/RoleApi.md#getrole) | **GET** /roles/{uuid} | Get organization role for a given uuid
 *ServiceAccountApi* | [**createServiceAccount**](docs/ServiceAccountApi.md#createserviceaccount) | **POST** /serviceAccounts | Creates a new service account
 *ServiceAccountApi* | [**getServiceAccount**](docs/ServiceAccountApi.md#getserviceaccount) | **GET** /serviceAccounts/{uuid} | Get detailed information about a user account.
 *ServiceAccountApi* | [**searchServiceAccount**](docs/ServiceAccountApi.md#searchserviceaccount) | **GET** /serviceAccounts | Searches service accounts that match ALL params. If none are provided, returns all service accounts
@@ -86,6 +88,7 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.OrganizationCreated](docs/OrganizationCreated.md)
  - [com.equisoft.accountservice.sdk.models.OrganizationPathElement](docs/OrganizationPathElement.md)
  - [com.equisoft.accountservice.sdk.models.PermissionCreated](docs/PermissionCreated.md)
+ - [com.equisoft.accountservice.sdk.models.Role](docs/Role.md)
  - [com.equisoft.accountservice.sdk.models.RoleCreated](docs/RoleCreated.md)
  - [com.equisoft.accountservice.sdk.models.RolesOnOrganization](docs/RolesOnOrganization.md)
  - [com.equisoft.accountservice.sdk.models.ServiceAccess](docs/ServiceAccess.md)

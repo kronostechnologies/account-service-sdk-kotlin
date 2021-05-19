@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**createOrUpdateRole**](OrganizationApi.md#createOrUpdateRole) | **PUT** /organizations/{uuid}/roles/{roleId} | Create or update organization roles for a given uuid
 [**createOrganization**](OrganizationApi.md#createOrganization) | **POST** /organizations | Creates a new organization
 [**createRole**](OrganizationApi.md#createRole) | **POST** /organizations/{uuid}/roles | Create organization roles for a given uuid
+[**deleteOrganization**](OrganizationApi.md#deleteOrganization) | **DELETE** /organizations/{uuid} | Delete organization
 [**getOrganization**](OrganizationApi.md#getOrganization) | **GET** /organizations/{uuid} | Get detailed information about an organization.
 [**listOrganization**](OrganizationApi.md#listOrganization) | **GET** /organizations | List organizations
 
@@ -199,6 +200,52 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+<a name="deleteOrganization"></a>
+# **deleteOrganization**
+> deleteOrganization(uuid, xUserUuid)
+
+Delete organization
+
+### Example
+```kotlin
+// Import classes:
+//import com.equisoft.accountservice.sdk.infrastructure.*
+//import com.equisoft.accountservice.sdk.models.*
+
+val apiInstance = OrganizationApi()
+val uuid : kotlin.String = uuid_example // kotlin.String | The organization identifier
+val xUserUuid : kotlin.String = xUserUuid_example // kotlin.String | Uuid of the user for whom the call is made. Used to apply access and security rules
+try {
+    apiInstance.deleteOrganization(uuid, xUserUuid)
+} catch (e: ClientException) {
+    println("4xx response calling OrganizationApi#deleteOrganization")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrganizationApi#deleteOrganization")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **kotlin.String**| The organization identifier |
+ **xUserUuid** | **kotlin.String**| Uuid of the user for whom the call is made. Used to apply access and security rules | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="getOrganization"></a>
 # **getOrganization**
