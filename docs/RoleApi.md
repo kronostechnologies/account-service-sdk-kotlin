@@ -4,32 +4,25 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getRole**](RoleApi.md#getRole) | **GET** /roles/{uuid} | Get organization role for a given uuid
+[**getRole**](RoleApi.md#getRole) | **GET** roles/{uuid} | Get organization role for a given uuid
 
 
-<a name="getRole"></a>
-# **getRole**
-> Role getRole(uuid)
 
 Get organization role for a given uuid
 
 ### Example
 ```kotlin
 // Import classes:
+//import com.equisoft.accountservice.sdk.*
 //import com.equisoft.accountservice.sdk.infrastructure.*
 //import com.equisoft.accountservice.sdk.models.*
 
-val apiInstance = RoleApi()
+val apiClient = ApiClient()
+val webService = apiClient.createWebservice(RoleApi::class.java)
 val uuid : kotlin.String = uuid_example // kotlin.String | The role identifier
-try {
-    val result : Role = apiInstance.getRole(uuid)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling RoleApi#getRole")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling RoleApi#getRole")
-    e.printStackTrace()
+
+launch(Dispatchers.IO) {
+    val result : Role = webService.getRole(uuid)
 }
 ```
 

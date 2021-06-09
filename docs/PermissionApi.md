@@ -4,33 +4,26 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createOrUpdatePermission**](PermissionApi.md#createOrUpdatePermission) | **PUT** /permissions/{code} | Create or update a permission for a given code
+[**createOrUpdatePermission**](PermissionApi.md#createOrUpdatePermission) | **PUT** permissions/{code} | Create or update a permission for a given code
 
 
-<a name="createOrUpdatePermission"></a>
-# **createOrUpdatePermission**
-> PermissionCreated createOrUpdatePermission(code, createOrUpdatePermissionPayload)
 
 Create or update a permission for a given code
 
 ### Example
 ```kotlin
 // Import classes:
+//import com.equisoft.accountservice.sdk.*
 //import com.equisoft.accountservice.sdk.infrastructure.*
 //import com.equisoft.accountservice.sdk.models.*
 
-val apiInstance = PermissionApi()
+val apiClient = ApiClient()
+val webService = apiClient.createWebservice(PermissionApi::class.java)
 val code : kotlin.String = code_example // kotlin.String | The permission code
 val createOrUpdatePermissionPayload : CreateOrUpdatePermissionPayload =  // CreateOrUpdatePermissionPayload | 
-try {
-    val result : PermissionCreated = apiInstance.createOrUpdatePermission(code, createOrUpdatePermissionPayload)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PermissionApi#createOrUpdatePermission")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PermissionApi#createOrUpdatePermission")
-    e.printStackTrace()
+
+launch(Dispatchers.IO) {
+    val result : PermissionCreated = webService.createOrUpdatePermission(code, createOrUpdatePermissionPayload)
 }
 ```
 
