@@ -18,10 +18,13 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param organizations 
+ * @param nextPageToken 
  */
 
 data class ListUserOrganizations (
     @Json(name = "organizations")
-    val organizations: kotlin.collections.List<ListOrganizationElement>
+    val organizations: kotlin.collections.List<ListOrganizationElement>,
+    @Json(name = "nextPageToken")
+    val nextPageToken: kotlin.String? = null
 )
 

@@ -386,7 +386,7 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     /**
     * List organizations
     * 
-    * @param max Max number of organizations per page. 
+    * @param max Max number of organizations per page. Must be a positive integer. 
     * @param pageToken Page token to start with. (optional)
     * @param parent Parent uuid. (optional)
     * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)
@@ -422,7 +422,7 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     /**
     * To obtain the request config of the operation listOrganization
     *
-    * @param max Max number of organizations per page. 
+    * @param max Max number of organizations per page. Must be a positive integer. 
     * @param pageToken Page token to start with. (optional)
     * @param parent Parent uuid. (optional)
     * @param xUserUuid Uuid of the user for whom the call is made. Used to apply access and security rules (optional)

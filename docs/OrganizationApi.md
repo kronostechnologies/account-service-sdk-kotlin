@@ -307,7 +307,7 @@ List organizations
 //import com.equisoft.accountservice.sdk.models.*
 
 val apiInstance = OrganizationApi()
-val max : kotlin.Int = 56 // kotlin.Int | Max number of organizations per page.
+val max : kotlin.Int = 56 // kotlin.Int | Max number of organizations per page. Must be a positive integer.
 val pageToken : kotlin.String = pageToken_example // kotlin.String | Page token to start with.
 val parent : kotlin.String = parent_example // kotlin.String | Parent uuid.
 val xUserUuid : kotlin.String = xUserUuid_example // kotlin.String | Uuid of the user for whom the call is made. Used to apply access and security rules
@@ -327,7 +327,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **max** | **kotlin.Int**| Max number of organizations per page. |
+ **max** | **kotlin.Int**| Max number of organizations per page. Must be a positive integer. |
  **pageToken** | **kotlin.String**| Page token to start with. | [optional]
  **parent** | **kotlin.String**| Parent uuid. | [optional]
  **xUserUuid** | **kotlin.String**| Uuid of the user for whom the call is made. Used to apply access and security rules | [optional]
