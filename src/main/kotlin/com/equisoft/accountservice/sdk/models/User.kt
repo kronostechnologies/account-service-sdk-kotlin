@@ -26,6 +26,7 @@ import com.squareup.moshi.Json
  * @param email 
  * @param locale 
  * @param state 
+ * @param locked 
  * @param legacyRoles Legacy roles the user is member of
  * @param deletable User deletion is disabled.
  * @param billable User is accounted for billing.
@@ -33,7 +34,6 @@ import com.squareup.moshi.Json
  * @param services 
  * @param authType 
  * @param mobilePhone Mobile phone used for sms password reset.
- * @param locked 
  * @param created 
  * @param ssoProvider 
  * @param ssoIdentifier 
@@ -52,6 +52,8 @@ data class User (
     val locale: kotlin.String,
     @Json(name = "state")
     val state: UserState,
+    @Json(name = "locked")
+    val locked: kotlin.Boolean,
     /* Legacy roles the user is member of */
     @Json(name = "legacyRoles")
     val legacyRoles: kotlin.collections.List<kotlin.String>,
@@ -70,8 +72,6 @@ data class User (
     /* Mobile phone used for sms password reset. */
     @Json(name = "mobilePhone")
     val mobilePhone: kotlin.String? = null,
-    @Json(name = "locked")
-    val locked: kotlin.Boolean? = null,
     @Json(name = "created")
     val created: java.time.OffsetDateTime? = null,
     @Json(name = "ssoProvider")
