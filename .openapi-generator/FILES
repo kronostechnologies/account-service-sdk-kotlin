@@ -42,11 +42,11 @@ docs/User.md
 docs/UserAccountPermission.md
 docs/UserAccountRole.md
 docs/UserAccountSearchResult.md
-docs/UserAccountSsoProvider.md
 docs/UserAgreement.md
 docs/UserAgreementState.md
 docs/UserApi.md
 docs/UserPermissions.md
+docs/UserSsoProvider.md
 docs/UserState.md
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -110,8 +110,8 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/User.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountPermission.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountRole.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountSearchResult.kt
-src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountSsoProvider.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAgreement.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAgreementState.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserPermissions.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/UserSsoProvider.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserState.kt

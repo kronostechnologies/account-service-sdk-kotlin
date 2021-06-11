@@ -1,10 +1,10 @@
 
-# UserAccountSsoProvider
+# UserSsoProvider
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **kotlin.String** |  |  [optional]
+**code** | **kotlin.String** |  | 
 
 
 

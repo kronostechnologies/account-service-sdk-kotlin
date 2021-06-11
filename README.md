@@ -107,10 +107,10 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.UserAccountPermission](docs/UserAccountPermission.md)
  - [com.equisoft.accountservice.sdk.models.UserAccountRole](docs/UserAccountRole.md)
  - [com.equisoft.accountservice.sdk.models.UserAccountSearchResult](docs/UserAccountSearchResult.md)
- - [com.equisoft.accountservice.sdk.models.UserAccountSsoProvider](docs/UserAccountSsoProvider.md)
  - [com.equisoft.accountservice.sdk.models.UserAgreement](docs/UserAgreement.md)
  - [com.equisoft.accountservice.sdk.models.UserAgreementState](docs/UserAgreementState.md)
  - [com.equisoft.accountservice.sdk.models.UserPermissions](docs/UserPermissions.md)
+ - [com.equisoft.accountservice.sdk.models.UserSsoProvider](docs/UserSsoProvider.md)
  - [com.equisoft.accountservice.sdk.models.UserState](docs/UserState.md)
 
 

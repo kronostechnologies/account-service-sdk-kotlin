@@ -12,8 +12,8 @@
 package com.equisoft.accountservice.sdk.models
 
 import com.equisoft.accountservice.sdk.models.ServiceAccess
-import com.equisoft.accountservice.sdk.models.UserAccountSsoProvider
 import com.equisoft.accountservice.sdk.models.UserAgreement
+import com.equisoft.accountservice.sdk.models.UserSsoProvider
 import com.equisoft.accountservice.sdk.models.UserState
 
 import com.squareup.moshi.Json
@@ -33,6 +33,7 @@ import com.squareup.moshi.Json
  * @param services 
  * @param authType 
  * @param mobilePhone Mobile phone used for sms password reset.
+ * @param locked 
  * @param created 
  * @param ssoProvider 
  * @param ssoIdentifier 
@@ -69,10 +70,12 @@ data class User (
     /* Mobile phone used for sms password reset. */
     @Json(name = "mobilePhone")
     val mobilePhone: kotlin.String? = null,
+    @Json(name = "locked")
+    val locked: kotlin.Boolean? = null,
     @Json(name = "created")
     val created: java.time.OffsetDateTime? = null,
     @Json(name = "ssoProvider")
-    val ssoProvider: UserAccountSsoProvider? = null,
+    val ssoProvider: UserSsoProvider? = null,
     @Json(name = "ssoIdentifier")
     val ssoIdentifier: kotlin.String? = null
 )

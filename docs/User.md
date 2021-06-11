@@ -17,8 +17,9 @@ Name | Type | Description | Notes
 **services** | [**kotlin.collections.List&lt;ServiceAccess&gt;**](ServiceAccess.md) |  | 
 **authType** | **kotlin.String** |  | 
 **mobilePhone** | **kotlin.String** | Mobile phone used for sms password reset. |  [optional]
+**locked** | **kotlin.Boolean** |  |  [optional]
 **created** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional]
-**ssoProvider** | [**UserAccountSsoProvider**](UserAccountSsoProvider.md) |  |  [optional]
+**ssoProvider** | [**UserSsoProvider**](UserSsoProvider.md) |  |  [optional]
 **ssoIdentifier** | **kotlin.String** |  |  [optional]
 
 

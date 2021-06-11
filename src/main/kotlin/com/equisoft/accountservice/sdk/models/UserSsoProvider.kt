@@ -19,8 +19,8 @@ import com.squareup.moshi.Json
  * @param code 
  */
 
-data class UserAccountSsoProvider (
+data class UserSsoProvider (
     @Json(name = "code")
-    val code: kotlin.String? = null
+    val code: kotlin.String
 )
 
