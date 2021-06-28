@@ -13,6 +13,7 @@ package com.equisoft.accountservice.sdk.models
 
 import com.equisoft.accountservice.sdk.models.ServiceAccess
 import com.equisoft.accountservice.sdk.models.UserAgreement
+import com.equisoft.accountservice.sdk.models.UserServiceAssociation
 import com.equisoft.accountservice.sdk.models.UserSsoProvider
 import com.equisoft.accountservice.sdk.models.UserState
 
@@ -32,6 +33,7 @@ import com.squareup.moshi.Json
  * @param billable User is accounted for billing.
  * @param agreement 
  * @param services 
+ * @param servicesUsers 
  * @param authType 
  * @param mobilePhone Mobile phone used for sms password reset.
  * @param created 
@@ -67,6 +69,8 @@ data class User (
     val agreement: UserAgreement,
     @Json(name = "services")
     val services: kotlin.collections.List<ServiceAccess>,
+    @Json(name = "servicesUsers")
+    val servicesUsers: kotlin.collections.List<UserServiceAssociation>,
     @Json(name = "authType")
     val authType: kotlin.String,
     /* Mobile phone used for sms password reset. */

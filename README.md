@@ -35,6 +35,8 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*OrganizationApi* | [**addService**](docs/OrganizationApi.md#addservice) | **PUT** /organizations/{uuid}/services/{serviceCode} | Add/update a service for an organization
+*OrganizationApi* | [**addServiceToUser**](docs/OrganizationApi.md#addservicetouser) | **PUT** /organizations/{uuid}/users/{userUuid}/services/{serviceCode} | Add/update a service to a user for an organization
 *OrganizationApi* | [**createOrUpdateOrganization**](docs/OrganizationApi.md#createorupdateorganization) | **PUT** /organizations/{uuid} | Create or update an organization for a given uuid
 *OrganizationApi* | [**createOrUpdateRole**](docs/OrganizationApi.md#createorupdaterole) | **PUT** /organizations/{uuid}/roles/{roleId} | Create or update organization roles for a given uuid
 *OrganizationApi* | [**createOrganization**](docs/OrganizationApi.md#createorganization) | **POST** /organizations | Creates a new organization
@@ -42,6 +44,8 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**deleteOrganization**](docs/OrganizationApi.md#deleteorganization) | **DELETE** /organizations/{uuid} | Delete organization
 *OrganizationApi* | [**getOrganization**](docs/OrganizationApi.md#getorganization) | **GET** /organizations/{uuid} | Get detailed information about an organization.
 *OrganizationApi* | [**listOrganization**](docs/OrganizationApi.md#listorganization) | **GET** /organizations | List organizations
+*OrganizationApi* | [**removeService**](docs/OrganizationApi.md#removeservice) | **DELETE** /organizations/{uuid}/services/{serviceCode} | Remove a service for an organization
+*OrganizationApi* | [**removeServiceFromUser**](docs/OrganizationApi.md#removeservicefromuser) | **DELETE** /organizations/{uuid}/users/{userUuid}/services/{serviceCode} | Remove a service from a user for an organization
 *PermissionApi* | [**createOrUpdatePermission**](docs/PermissionApi.md#createorupdatepermission) | **PUT** /permissions/{code} | Create or update a permission for a given code
 *RoleApi* | [**getRole**](docs/RoleApi.md#getrole) | **GET** /roles/{uuid} | Get organization role for a given uuid
 *ServiceAccountApi* | [**createServiceAccount**](docs/ServiceAccountApi.md#createserviceaccount) | **POST** /serviceAccounts | Creates a new service account
@@ -87,6 +91,7 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.Organization](docs/Organization.md)
  - [com.equisoft.accountservice.sdk.models.OrganizationCreated](docs/OrganizationCreated.md)
  - [com.equisoft.accountservice.sdk.models.OrganizationPathElement](docs/OrganizationPathElement.md)
+ - [com.equisoft.accountservice.sdk.models.OrganizationServicesElement](docs/OrganizationServicesElement.md)
  - [com.equisoft.accountservice.sdk.models.PermissionCreated](docs/PermissionCreated.md)
  - [com.equisoft.accountservice.sdk.models.Role](docs/Role.md)
  - [com.equisoft.accountservice.sdk.models.RoleCreated](docs/RoleCreated.md)
@@ -103,6 +108,7 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.SessionState](docs/SessionState.md)
  - [com.equisoft.accountservice.sdk.models.SsoProvider](docs/SsoProvider.md)
  - [com.equisoft.accountservice.sdk.models.SsoToken](docs/SsoToken.md)
+ - [com.equisoft.accountservice.sdk.models.UpsertServicePayload](docs/UpsertServicePayload.md)
  - [com.equisoft.accountservice.sdk.models.User](docs/User.md)
  - [com.equisoft.accountservice.sdk.models.UserAccountPermission](docs/UserAccountPermission.md)
  - [com.equisoft.accountservice.sdk.models.UserAccountRole](docs/UserAccountRole.md)
@@ -110,6 +116,7 @@ Class | Method | HTTP request | Description
  - [com.equisoft.accountservice.sdk.models.UserAgreement](docs/UserAgreement.md)
  - [com.equisoft.accountservice.sdk.models.UserAgreementState](docs/UserAgreementState.md)
  - [com.equisoft.accountservice.sdk.models.UserPermissions](docs/UserPermissions.md)
+ - [com.equisoft.accountservice.sdk.models.UserServiceAssociation](docs/UserServiceAssociation.md)
  - [com.equisoft.accountservice.sdk.models.UserSsoProvider](docs/UserSsoProvider.md)
  - [com.equisoft.accountservice.sdk.models.UserState](docs/UserState.md)
 

@@ -13,6 +13,7 @@ package com.equisoft.accountservice.sdk.models
 
 import com.equisoft.accountservice.sdk.models.LocalizedString
 import com.equisoft.accountservice.sdk.models.OrganizationPathElement
+import com.equisoft.accountservice.sdk.models.OrganizationServicesElement
 
 import com.squareup.moshi.Json
 
@@ -21,6 +22,7 @@ import com.squareup.moshi.Json
  * @param uuid 
  * @param name 
  * @param path 
+ * @param services 
  * @param parentUuid 
  */
 
@@ -31,6 +33,8 @@ data class ListOrganizationElement (
     val name: LocalizedString,
     @Json(name = "path")
     val path: kotlin.collections.List<OrganizationPathElement>,
+    @Json(name = "services")
+    val services: kotlin.collections.List<OrganizationServicesElement>,
     @Json(name = "parentUuid")
     val parentUuid: kotlin.String? = null
 )

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **equisoftConnectProfiles** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 
 **equisoftPlanProfiles** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 
 **createdAt** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
+**services** | [**kotlin.collections.List&lt;OrganizationServicesElement&gt;**](OrganizationServicesElement.md) |  | 
 **parentUuid** | **kotlin.String** |  |  [optional]
 **modifiedAt** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional]
 

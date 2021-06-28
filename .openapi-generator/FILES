@@ -18,6 +18,7 @@ docs/Organization.md
 docs/OrganizationApi.md
 docs/OrganizationCreated.md
 docs/OrganizationPathElement.md
+docs/OrganizationServicesElement.md
 docs/PermissionApi.md
 docs/PermissionCreated.md
 docs/Role.md
@@ -38,6 +39,7 @@ docs/SessionPayload.md
 docs/SessionState.md
 docs/SsoProvider.md
 docs/SsoToken.md
+docs/UpsertServicePayload.md
 docs/User.md
 docs/UserAccountPermission.md
 docs/UserAccountRole.md
@@ -46,6 +48,7 @@ docs/UserAgreement.md
 docs/UserAgreementState.md
 docs/UserApi.md
 docs/UserPermissions.md
+docs/UserServiceAssociation.md
 docs/UserSsoProvider.md
 docs/UserState.md
 gradle/wrapper/gradle-wrapper.jar
@@ -90,6 +93,7 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/LocalizedString.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/Organization.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationPathElement.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/OrganizationServicesElement.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/PermissionCreated.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/Role.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/RoleCreated.kt
@@ -106,6 +110,7 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/SessionPayload.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/SessionState.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/SsoProvider.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/SsoToken.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/UpsertServicePayload.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/User.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountPermission.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountRole.kt
@@ -113,5 +118,6 @@ src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAccountSearchResult.k
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAgreement.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserAgreementState.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserPermissions.kt
+src/main/kotlin/com/equisoft/accountservice/sdk/models/UserServiceAssociation.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserSsoProvider.kt
 src/main/kotlin/com/equisoft/accountservice/sdk/models/UserState.kt

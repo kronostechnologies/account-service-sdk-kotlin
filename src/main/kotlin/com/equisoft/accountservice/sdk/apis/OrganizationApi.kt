@@ -19,6 +19,7 @@ import com.equisoft.accountservice.sdk.models.ListUserOrganizations
 import com.equisoft.accountservice.sdk.models.Organization
 import com.equisoft.accountservice.sdk.models.OrganizationCreated
 import com.equisoft.accountservice.sdk.models.RoleCreated
+import com.equisoft.accountservice.sdk.models.UpsertServicePayload
 
 import com.equisoft.accountservice.sdk.infrastructure.ApiClient
 import com.equisoft.accountservice.sdk.infrastructure.ClientException
@@ -38,6 +39,124 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
         val defaultBasePath: String by lazy {
             System.getProperties().getProperty("com.equisoft.accountservice.sdk.baseUrl", "http://localhost")
         }
+    }
+
+    /**
+    * Add/update a service for an organization
+    * 
+    * @param uuid The organization identifier 
+    * @param serviceCode The service code 
+    * @param upsertServicePayload  
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun addService(uuid: kotlin.String, serviceCode: kotlin.String, upsertServicePayload: UpsertServicePayload) : Unit {
+        val localVariableConfig = addServiceRequestConfig(uuid = uuid, serviceCode = serviceCode, upsertServicePayload = upsertServicePayload)
+
+        val localVarResponse = request<Any?>(
+            localVariableConfig
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * To obtain the request config of the operation addService
+    *
+    * @param uuid The organization identifier 
+    * @param serviceCode The service code 
+    * @param upsertServicePayload  
+    * @return RequestConfig
+    */
+    fun addServiceRequestConfig(uuid: kotlin.String, serviceCode: kotlin.String, upsertServicePayload: UpsertServicePayload) : RequestConfig {
+        val localVariableBody: kotlin.Any? = upsertServicePayload
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/organizations/{uuid}/services/{serviceCode}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"serviceCode"+"}", "$serviceCode"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
+    * Add/update a service to a user for an organization
+    * 
+    * @param uuid The organization identifier 
+    * @param userUuid The user identifier 
+    * @param serviceCode The service code 
+    * @param upsertServicePayload  
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun addServiceToUser(uuid: kotlin.String, userUuid: kotlin.String, serviceCode: kotlin.String, upsertServicePayload: UpsertServicePayload) : Unit {
+        val localVariableConfig = addServiceToUserRequestConfig(uuid = uuid, userUuid = userUuid, serviceCode = serviceCode, upsertServicePayload = upsertServicePayload)
+
+        val localVarResponse = request<Any?>(
+            localVariableConfig
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * To obtain the request config of the operation addServiceToUser
+    *
+    * @param uuid The organization identifier 
+    * @param userUuid The user identifier 
+    * @param serviceCode The service code 
+    * @param upsertServicePayload  
+    * @return RequestConfig
+    */
+    fun addServiceToUserRequestConfig(uuid: kotlin.String, userUuid: kotlin.String, serviceCode: kotlin.String, upsertServicePayload: UpsertServicePayload) : RequestConfig {
+        val localVariableBody: kotlin.Any? = upsertServicePayload
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/organizations/{uuid}/users/{userUuid}/services/{serviceCode}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"userUuid"+"}", "$userUuid").replace("{"+"serviceCode"+"}", "$serviceCode"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
     }
 
     /**
@@ -446,6 +565,120 @@ class OrganizationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
         val localVariableConfig = RequestConfig(
             method = RequestMethod.GET,
             path = "/organizations",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
+    * Remove a service for an organization
+    * 
+    * @param uuid The organization identifier 
+    * @param serviceCode The service code 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun removeService(uuid: kotlin.String, serviceCode: kotlin.String) : Unit {
+        val localVariableConfig = removeServiceRequestConfig(uuid = uuid, serviceCode = serviceCode)
+
+        val localVarResponse = request<Any?>(
+            localVariableConfig
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * To obtain the request config of the operation removeService
+    *
+    * @param uuid The organization identifier 
+    * @param serviceCode The service code 
+    * @return RequestConfig
+    */
+    fun removeServiceRequestConfig(uuid: kotlin.String, serviceCode: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/organizations/{uuid}/services/{serviceCode}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"serviceCode"+"}", "$serviceCode"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+
+        return localVariableConfig
+    }
+
+    /**
+    * Remove a service from a user for an organization
+    * 
+    * @param uuid The organization identifier 
+    * @param userUuid The user identifier 
+    * @param serviceCode The service code 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun removeServiceFromUser(uuid: kotlin.String, userUuid: kotlin.String, serviceCode: kotlin.String) : Unit {
+        val localVariableConfig = removeServiceFromUserRequestConfig(uuid = uuid, userUuid = userUuid, serviceCode = serviceCode)
+
+        val localVarResponse = request<Any?>(
+            localVariableConfig
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * To obtain the request config of the operation removeServiceFromUser
+    *
+    * @param uuid The organization identifier 
+    * @param userUuid The user identifier 
+    * @param serviceCode The service code 
+    * @return RequestConfig
+    */
+    fun removeServiceFromUserRequestConfig(uuid: kotlin.String, userUuid: kotlin.String, serviceCode: kotlin.String) : RequestConfig {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+        val localVariableConfig = RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/organizations/{uuid}/users/{userUuid}/services/{serviceCode}".replace("{"+"uuid"+"}", "$uuid").replace("{"+"userUuid"+"}", "$userUuid").replace("{"+"serviceCode"+"}", "$serviceCode"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             body = localVariableBody

@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addService**](OrganizationApi.md#addService) | **PUT** /organizations/{uuid}/services/{serviceCode} | Add/update a service for an organization
+[**addServiceToUser**](OrganizationApi.md#addServiceToUser) | **PUT** /organizations/{uuid}/users/{userUuid}/services/{serviceCode} | Add/update a service to a user for an organization
 [**createOrUpdateOrganization**](OrganizationApi.md#createOrUpdateOrganization) | **PUT** /organizations/{uuid} | Create or update an organization for a given uuid
 [**createOrUpdateRole**](OrganizationApi.md#createOrUpdateRole) | **PUT** /organizations/{uuid}/roles/{roleId} | Create or update organization roles for a given uuid
 [**createOrganization**](OrganizationApi.md#createOrganization) | **POST** /organizations | Creates a new organization
@@ -11,7 +13,107 @@ Method | HTTP request | Description
 [**deleteOrganization**](OrganizationApi.md#deleteOrganization) | **DELETE** /organizations/{uuid} | Delete organization
 [**getOrganization**](OrganizationApi.md#getOrganization) | **GET** /organizations/{uuid} | Get detailed information about an organization.
 [**listOrganization**](OrganizationApi.md#listOrganization) | **GET** /organizations | List organizations
+[**removeService**](OrganizationApi.md#removeService) | **DELETE** /organizations/{uuid}/services/{serviceCode} | Remove a service for an organization
+[**removeServiceFromUser**](OrganizationApi.md#removeServiceFromUser) | **DELETE** /organizations/{uuid}/users/{userUuid}/services/{serviceCode} | Remove a service from a user for an organization
 
+
+<a name="addService"></a>
+# **addService**
+> addService(uuid, serviceCode, upsertServicePayload)
+
+Add/update a service for an organization
+
+### Example
+```kotlin
+// Import classes:
+//import com.equisoft.accountservice.sdk.infrastructure.*
+//import com.equisoft.accountservice.sdk.models.*
+
+val apiInstance = OrganizationApi()
+val uuid : kotlin.String = uuid_example // kotlin.String | The organization identifier
+val serviceCode : kotlin.String = serviceCode_example // kotlin.String | The service code
+val upsertServicePayload : UpsertServicePayload =  // UpsertServicePayload | 
+try {
+    apiInstance.addService(uuid, serviceCode, upsertServicePayload)
+} catch (e: ClientException) {
+    println("4xx response calling OrganizationApi#addService")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrganizationApi#addService")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **kotlin.String**| The organization identifier |
+ **serviceCode** | **kotlin.String**| The service code |
+ **upsertServicePayload** | [**UpsertServicePayload**](UpsertServicePayload.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="addServiceToUser"></a>
+# **addServiceToUser**
+> addServiceToUser(uuid, userUuid, serviceCode, upsertServicePayload)
+
+Add/update a service to a user for an organization
+
+### Example
+```kotlin
+// Import classes:
+//import com.equisoft.accountservice.sdk.infrastructure.*
+//import com.equisoft.accountservice.sdk.models.*
+
+val apiInstance = OrganizationApi()
+val uuid : kotlin.String = uuid_example // kotlin.String | The organization identifier
+val userUuid : kotlin.String = userUuid_example // kotlin.String | The user identifier
+val serviceCode : kotlin.String = serviceCode_example // kotlin.String | The service code
+val upsertServicePayload : UpsertServicePayload =  // UpsertServicePayload | 
+try {
+    apiInstance.addServiceToUser(uuid, userUuid, serviceCode, upsertServicePayload)
+} catch (e: ClientException) {
+    println("4xx response calling OrganizationApi#addServiceToUser")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrganizationApi#addServiceToUser")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **kotlin.String**| The organization identifier |
+ **userUuid** | **kotlin.String**| The user identifier |
+ **serviceCode** | **kotlin.String**| The service code |
+ **upsertServicePayload** | [**UpsertServicePayload**](UpsertServicePayload.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 <a name="createOrUpdateOrganization"></a>
 # **createOrUpdateOrganization**
@@ -344,4 +446,98 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a name="removeService"></a>
+# **removeService**
+> removeService(uuid, serviceCode)
+
+Remove a service for an organization
+
+### Example
+```kotlin
+// Import classes:
+//import com.equisoft.accountservice.sdk.infrastructure.*
+//import com.equisoft.accountservice.sdk.models.*
+
+val apiInstance = OrganizationApi()
+val uuid : kotlin.String = uuid_example // kotlin.String | The organization identifier
+val serviceCode : kotlin.String = serviceCode_example // kotlin.String | The service code
+try {
+    apiInstance.removeService(uuid, serviceCode)
+} catch (e: ClientException) {
+    println("4xx response calling OrganizationApi#removeService")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrganizationApi#removeService")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **kotlin.String**| The organization identifier |
+ **serviceCode** | **kotlin.String**| The service code |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="removeServiceFromUser"></a>
+# **removeServiceFromUser**
+> removeServiceFromUser(uuid, userUuid, serviceCode)
+
+Remove a service from a user for an organization
+
+### Example
+```kotlin
+// Import classes:
+//import com.equisoft.accountservice.sdk.infrastructure.*
+//import com.equisoft.accountservice.sdk.models.*
+
+val apiInstance = OrganizationApi()
+val uuid : kotlin.String = uuid_example // kotlin.String | The organization identifier
+val userUuid : kotlin.String = userUuid_example // kotlin.String | The user identifier
+val serviceCode : kotlin.String = serviceCode_example // kotlin.String | The service code
+try {
+    apiInstance.removeServiceFromUser(uuid, userUuid, serviceCode)
+} catch (e: ClientException) {
+    println("4xx response calling OrganizationApi#removeServiceFromUser")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrganizationApi#removeServiceFromUser")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **kotlin.String**| The organization identifier |
+ **userUuid** | **kotlin.String**| The user identifier |
+ **serviceCode** | **kotlin.String**| The service code |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 

@@ -13,6 +13,7 @@ package com.equisoft.accountservice.sdk.models
 
 import com.equisoft.accountservice.sdk.models.LocalizedString
 import com.equisoft.accountservice.sdk.models.OrganizationPathElement
+import com.equisoft.accountservice.sdk.models.OrganizationServicesElement
 
 import com.squareup.moshi.Json
 
@@ -24,6 +25,7 @@ import com.squareup.moshi.Json
  * @param equisoftConnectProfiles 
  * @param equisoftPlanProfiles 
  * @param createdAt 
+ * @param services 
  * @param parentUuid 
  * @param modifiedAt 
  */
@@ -42,6 +44,8 @@ data class Organization (
     val equisoftPlanProfiles: kotlin.collections.List<kotlin.String>,
     @Json(name = "createdAt")
     val createdAt: java.time.OffsetDateTime,
+    @Json(name = "services")
+    val services: kotlin.collections.List<OrganizationServicesElement>,
     @Json(name = "parentUuid")
     val parentUuid: kotlin.String? = null,
     @Json(name = "modifiedAt")
